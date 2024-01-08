@@ -7,6 +7,7 @@ tmp
 public/*
 !public/index.html
 !public/vercel.json
+!public/04_change-detection/vercel.json
 
 # dependencies
 node_modules

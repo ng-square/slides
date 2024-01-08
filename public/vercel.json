@@ -1,6 +1,8 @@
 {
   "rewrites": [
     { "source": "/00_intro/(.*)", "destination": "00_intro/index.html" },
+    { "source": "/01_js-and-ts/(.*)", "destination": "01_js-and-ts/index.html" },
+    { "source": "/04_change-detection/(.*)", "destination": "04_change-detection/index.html" },
     { "source": "/(.*)", "destination": "index.html" }
   ]
 }

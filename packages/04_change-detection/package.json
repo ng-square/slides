@@ -1,9 +1,9 @@
 {
-  "name": "01_js-and-ts",
+  "name": "04_change-detection",
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "slidev build --out ../../public/01_js-and-ts --base /01_js-and-ts/",
+    "build": "slidev build --out ../../public/04_change-detection --base /04_change-detection/",
     "dev": "slidev --open",
     "export": "slidev export"
   },
