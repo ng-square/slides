@@ -4,7 +4,7 @@
 dist
 tmp
 /out-tsc
-# public/*
+public/*
 !public/index.html
 !public/vercel.json
 
