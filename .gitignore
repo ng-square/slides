@@ -6,6 +6,7 @@ tmp
 /out-tsc
 public/*
 !public/index.html
+!public/vercel.json
 
 # dependencies
 node_modules
