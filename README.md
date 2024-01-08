@@ -1,3 +1,65 @@
+# TODOs
+
+[] slidev finish @hirsch88
+[] nx getting started @yannickholzenkamp
+
+# Topics
+
+## Basic Topics (Small Apps)
+
+- [] Intro @hirsch88
+ - speackers
+- [] Basic Angular What is that 
+- [] TypeScript & JS @hirsch88
+- [] Setup Node.js & NX & Angular
+  - file structure
+- [] Design System
+- Components
+ - [] properties
+ - [] templates
+ - [] event handling
+ - [] inputs
+ - [] outputs
+ - [] control flows
+ - [] lifecyle
+ - [] pipes
+ - [] architecure / nested
+- [] DI / Inject-based dependency injection
+- [] module / standalone
+- [] service
+- [] observables / signals
+- [] Change Detection Light
+ - careful use function and getters 
+- [] Basic Routing
+- [] Ajax Requests
+- [] Forms
+ - layout
+ - validation
+- [] Translations
+- [] security
+- [] baloise deployment (intern)
+
+## Test Topics
+
+- unit testing
+- e2e testing with cypress
+ - component
+ - e2e
+ - visuals
+
+## Advanced Topics (Large Apps & External)
+
+- Change Detection / performance / best practices
+- Routing
+ - lazy loading
+- State Mgmt
+- Deferrable Views
+- Shared Lib / mono repo
+- architecure clean
+
+
+
+
 # Slides
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
