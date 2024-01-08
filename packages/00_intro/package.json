@@ -1,0 +1,15 @@
+{
+  "name": "00_intro",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "slidev build --out ../../public/00_intro --base /00_intro/",
+    "dev": "slidev --open",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "^0.46.1",
+    "@slidev/theme-default": "latest",
+    "@slidev/theme-seriph": "latest"
+  }
+}

@@ -2,12 +2,14 @@
   "name": "slides",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
   "private": true,
   "dependencies": {},
   "devDependencies": {
     "@nx/js": "17.2.8",
-    "nx": "17.2.8"
+    "nx": "17.2.8",
+    "@slidev/cli": "^0.46.1",
+    "@slidev/theme-default": "latest",
+    "@slidev/theme-seriph": "latest"
   },
   "workspaces": [
     "packages/*"
