@@ -93,3 +93,24 @@ p code {
 h1 > code {
   -webkit-text-fill-color: #b8b2ff;
 }
+
+.background-size-contain {
+  background-size: contain !important;
+}
+
+.sum-up ul {
+  list-style: none;
+}
+
+.sum-up ul li {
+  margin: 0;
+  font-size: 1.6rem;
+  padding-bottom: 0.5rem;
+}
+
+.sum-up ul li:before {
+  content: "✓";
+  margin-right: 1rem;
+  color: #d9304c;
+  font-weight: 700;
+}
