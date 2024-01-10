@@ -104,8 +104,7 @@ h1 > code {
 
 .sum-up ul li {
   margin: 0;
-  font-size: 1.6rem;
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.2rem;
 }
 
 .sum-up ul li:before {

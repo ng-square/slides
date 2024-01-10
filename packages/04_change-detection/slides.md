@@ -1,27 +1,43 @@
 ```yaml
+title: Change Detection - ngSquare
 theme: default
-class: text-center
+highlighter: shikiji
+transition: slide-left
 lineNumbers: false
+info: false
 drawings:
   persist: false
-title: Change Detection
+
+layout: cover
+background: https://images.unsplash.com/photo-1513116917658-bdc8f9e49348?q=80&w=2400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+image: images/gradient-icon---large.gif
+hideInToc: true
 ```
 
 # Change Detection
 
-## Welcome
+<div class="pt-12">
+  <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
+    Press Space for next page <carbon:arrow-right class="inline"/>
+  </span>
+</div>
+
+<div class="abs-br m-6 flex gap-2">
+  <a href="https://github.com/ng-square/slides" target="_blank" alt="GitHub" title="Open in GitHub"
+    class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
+    <carbon-logo-github />
+  </a>
+</div>
 
 ---
 
-- What is a change anyway?
-- What causes a change?
-- Who notifies Angular?
-- Change Detection
-- Performance
-- Smarter Change Detection
-  - Immutable
-  - Observables
-  - OnPush
+```yaml
+hideInToc: true
+```
+
+# Table of contents
+
+<Toc maxDepth="1"></Toc>
 
 ---
 
@@ -42,7 +58,7 @@ class: background-size-contain
 ---
 
 ```yaml
-layout: fact
+layout: section
 ```
 
 # What causes change?
@@ -104,7 +120,7 @@ Basically application state change can be caused by:
 ---
 
 ```yaml
-layout: fact
+layout: center
 ```
 
 # Who notifies Angular?
@@ -188,7 +204,7 @@ NgZone is a forked zone with additional API’s based on Observables
 ---
 
 ```yaml
-layout: fact
+layout: section
 ```
 
 # Change Detection
@@ -236,7 +252,8 @@ Can perform hundreds of thousands of simple checks in a few milliseconds
 ---
 
 ```yaml
-layout: fact
+layout: cover
+hideInToc: true
 ```
 
 # Smarter
@@ -339,6 +356,14 @@ class: background-size-contain
 ---
 
 ```yaml
+layout: section
+```
+
+# OnPush Strategy
+
+---
+
+```yaml
 layout: image
 image: /images/Slide - 38.svg
 class: background-size-contain
@@ -370,6 +395,14 @@ class CartBadgeCmp {
   }
 }
 ```
+
+---
+
+```yaml
+layout: section
+```
+
+# Observables
 
 ---
 
@@ -436,16 +469,20 @@ class: background-size-contain
 ---
 
 ```yaml
-layout: intro
+layout: image-right
+image: images/question.svg
+hideInToc: true
 ```
 
-# Any Questions ?
+# Any Questions
 
 ---
 
 ```yaml
-layout: intro
+layout: image-right
+image: images/sum-up.svg
 class: sum-up
+hideInToc: true
 ```
 
 # Sum Up
