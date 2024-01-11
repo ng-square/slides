@@ -4,12 +4,12 @@
 
 - [] Intro @hirsch88
  - speackers
-- [] Basic Angular What is that @yannickholzenkamp
-- [] TypeScript & JS @hirsch88
+- [x] Basic Angular What is that
+- [x] TypeScript & JS
 - [] Setup Node.js & NX & Angular @hirsch88
   - file structure
 - [] Design System
-- Components
+- Components @yannickholzenkamp
  - [] properties
  - [] templates
  - [] event handling
