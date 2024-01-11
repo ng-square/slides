@@ -1,6 +1,25 @@
 {
   "rewrites": [
-    { "source": "/00_intro/(.*)", "destination": "00_intro/index.html" },
+    {
+      "source": "/00_cheat-sheet/(.*)",
+      "destination": "/00_cheat-sheet/index.html"
+    },
+    {
+      "source": "/01-basic_00-intro/(.*)",
+      "destination": "/01-basic_00-intro/index.html"
+    },
+    {
+      "source": "/01-basic_01-angular-basics/(.*)",
+      "destination": "01-basic_01-angular-basics/index.html"
+    },
+    {
+      "source": "/01-basic_02-js-and-ts/(.*)",
+      "destination": "01-basic_02-js-and-ts/index.html"
+    },
+    {
+      "source": "/01-basic_03-setup/(.*)",
+      "destination": "01-basic_03-setup/index.html"
+    },
     { "source": "/(.*)", "destination": "index.html" }
   ]
 }
