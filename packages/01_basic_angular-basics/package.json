@@ -1,0 +1,18 @@
+{
+  "name": "02_basic_angular-basics",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "slidev build --out ../../public/02_basic_angular-basics --base /02_basic_angular-basics/",
+    "dev": "slidev --open",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "^0.46.1",
+    "@slidev/theme-default": "latest",
+    "@slidev/theme-seriph": "latest"
+  },
+  "devDependencies": {
+    "@iconify-json/uim": "^1.1.9"
+  }
+}

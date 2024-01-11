@@ -1,0 +1,18 @@
+{
+  "name": "TEMPLATE",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "slidev build --out ../../public/TEMPLATE --base /TEMPLATE/",
+    "dev": "slidev --open",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "^0.46.1",
+    "@slidev/theme-default": "latest",
+    "@slidev/theme-seriph": "latest"
+  },
+  "devDependencies": {
+    "@iconify-json/uim": "^1.1.9"
+  }
+}
