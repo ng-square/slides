@@ -41,9 +41,14 @@ hideInToc: true
 
 ---
 
+```yaml 
+layout: image-right
+image: gradient-icon---large.gif
+```
+
 # What is Angular?
 
-- Development platform to develop Single-Page web Applications (SPAs)
+- Development platform to create Single-Page web Applications (SPAs)
 - Based on TypeScript
 - Includes
   - a component based framework
@@ -51,3 +56,22 @@ hideInToc: true
   - developer tools
 - Development led by Google
 - Introduced in 2016
+
+---
+
+# Why Angular?
+
+- Feature-rich framework
+- Well-suited for large scale applications
+- Built for scalability and performance
+- Designed with testability in mind
+- Large community
+- Modular architecture and reusable components 
+
+---
+
+# Core elements of Angular
+
+- Components, templates and data bindings
+- Services
+- Routing
