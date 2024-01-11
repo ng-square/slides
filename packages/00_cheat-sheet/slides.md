@@ -40,3 +40,81 @@ hideInToc: true
 <Toc maxDepth="1"></Toc>
 
 ---
+
+```yaml
+layout: image-right
+image: node.png
+```
+
+# Node.js
+
+Node.js® is an open-source, cross-platform JavaScript runtime environment.
+
+## Links
+
+- [Documentation](https://nodejs.org/en)
+
+---
+
+```yaml
+layout: image-right
+image: npm.png
+```
+
+# NPM
+
+Node Package Manager is part of Node.js (also installed together with the installer).
+
+## Links
+
+- [Documentation](https://www.npmjs.com/)
+
+---
+
+```yaml
+layout: image-right
+image: angular.gif
+```
+
+# Angular
+
+Angular is a web framework.
+
+## Links
+
+- [Documentation](https://angular.dev/)
+- [Getting Started](https://angular.dev/tools/cli/setup-local)
+
+---
+
+<div class="grid grid-cols-2 gap-4">
+<div>
+
+The first column
+
+</div>
+<div>
+
+The second column
+
+</div>
+</div>
+
+---
+
+```yaml
+layout: image-right
+image: nx.png
+```
+
+# Nx
+
+Nx is a build system with built-in tooling and advanced CI capabilities . It helps you maintain and scale monorepos, both locally and on CI.
+
+## Links
+
+- [Documentation](https://nx.dev/)
+- [Getting Started](https://nx.dev/getting-started/intro)
+- [Angular Setup](https://nx.dev/getting-started/tutorials/angular-standalone-tutorial)
+
+---
