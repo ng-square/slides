@@ -40,3 +40,14 @@ hideInToc: true
 <Toc maxDepth="1"></Toc>
 
 ---
+
+# What is Angular?
+
+- Development platform to develop Single-Page web Applications (SPAs)
+- Based on TypeScript
+- Includes
+  - a component based framework
+  - a collection of integrated libraries
+  - developer tools
+- Development led by Google
+- Introduced in 2016
