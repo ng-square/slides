@@ -1,9 +1,8 @@
 {
-  "name": "00_intro",
+  "name": "DEMO",
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "slidev build --out ../../public/00_intro --base /00_intro/",
     "dev": "slidev --open",
     "export": "slidev export"
   },
