@@ -25,14 +25,27 @@
 - [] observables / signals
 - [] Change Detection Light
  - careful use function and getters 
-- [] Basic Routing
 - [] Ajax Requests
+
+## Intermediate
+
+- [] Routing
+ - lazy loading
+ - parameters from route
 - [] Forms
  - layout
  - validation
 - [] Translations
 - [] security
 - [] baloise deployment (intern)
+
+## Advanced Topics (Large Apps & External)
+
+- Change Detection / performance / best practices
+- State Mgmt
+- Deferrable Views
+- Shared Lib / mono repo
+- architecure clean
 
 ## Test Topics
 
@@ -42,15 +55,7 @@
  - e2e
  - visuals
 
-## Advanced Topics (Large Apps & External)
 
-- Change Detection / performance / best practices
-- Routing
- - lazy loading
-- State Mgmt
-- Deferrable Views
-- Shared Lib / mono repo
-- architecure clean
 
 
 
