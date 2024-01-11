@@ -134,7 +134,7 @@ layout: center
 ```yaml
 layout: image
 image: /images/event-loop.png
-class: background-size-contain
+class: background-size-contain--dark
 ```
 
 ## Event Loop
@@ -221,7 +221,7 @@ image: /images/Slide - 21.svg
 ```yaml
 layout: image
 image: /images/Slide - 22.svg
-class: background-size-contain
+class: background-size-contain--dark
 ```
 
 ---
@@ -229,7 +229,7 @@ class: background-size-contain
 ```yaml
 layout: image
 image: /images/Slide - 23.svg
-class: background-size-contain
+class: background-size-contain--dark
 ```
 
 ---
@@ -293,7 +293,7 @@ class VCardApp {
 ```yaml
 layout: image
 image: /images/Slide - 30.svg
-class: background-size-contain
+class: background-size-contain--dark
 ```
 
 ---
@@ -301,7 +301,7 @@ class: background-size-contain
 ```yaml
 layout: image
 image: /images/Slide - 31.svg
-class: background-size-contain
+class: background-size-contain--dark
 ```
 
 ---
@@ -342,7 +342,7 @@ subtrees when input properties don’t change\*.
 ```yaml
 layout: image
 image: /images/Slide - 36.svg
-class: background-size-contain
+class: background-size-contain--dark
 ```
 
 ---
@@ -350,7 +350,7 @@ class: background-size-contain
 ```yaml
 layout: image
 image: /images/Slide - 37.svg
-class: background-size-contain
+class: background-size-contain--dark
 ```
 
 ---
@@ -366,7 +366,7 @@ layout: section
 ```yaml
 layout: image
 image: /images/Slide - 38.svg
-class: background-size-contain
+class: background-size-contain--dark
 ```
 
 ---
@@ -374,7 +374,7 @@ class: background-size-contain
 ```yaml
 layout: image
 image: /images/Slide - 39.svg
-class: background-size-contain
+class: background-size-contain--dark
 ```
 
 ---
@@ -409,7 +409,7 @@ layout: section
 ```yaml
 layout: image
 image: /images/Slide - 41.svg
-class: background-size-contain
+class: background-size-contain--dark
 ```
 
 ---
@@ -417,7 +417,7 @@ class: background-size-contain
 ```yaml
 layout: image
 image: /images/Slide - 42.svg
-class: background-size-contain
+class: background-size-contain--dark
 ```
 
 ---
@@ -447,7 +447,7 @@ class CartBadgeCmp {
 ```yaml
 layout: image
 image: /images/Slide - 44.svg
-class: background-size-contain
+class: background-size-contain--dark
 ```
 
 ---
@@ -455,7 +455,7 @@ class: background-size-contain
 ```yaml
 layout: image
 image: /images/Slide - 45.svg
-class: background-size-contain
+class: background-size-contain--dark
 ```
 
 ---
@@ -463,7 +463,7 @@ class: background-size-contain
 ```yaml
 layout: image
 image: /images/Slide - 46.svg
-class: background-size-contain
+class: background-size-contain--dark
 ```
 
 ---
