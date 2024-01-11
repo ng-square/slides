@@ -1,17 +1,12 @@
-# TODOs
-
-[] slidev finish @hirsch88
-[] nx getting started @yannickholzenkamp
-
 # Topics
 
 ## Basic Topics (Small Apps)
 
 - [] Intro @hirsch88
  - speackers
-- [] Basic Angular What is that 
+- [] Basic Angular What is that @yannickholzenkamp
 - [] TypeScript & JS @hirsch88
-- [] Setup Node.js & NX & Angular
+- [] Setup Node.js & NX & Angular @hirsch88
   - file structure
 - [] Design System
 - Components
