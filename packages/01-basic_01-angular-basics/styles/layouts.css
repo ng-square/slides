@@ -98,6 +98,11 @@ h1 > code {
   background-size: contain !important;
 }
 
+.background-size-contain--dark {
+  background-color: #121212;
+  background-size: contain !important;
+}
+
 .sum-up ul {
   list-style: none;
 }

@@ -44,7 +44,7 @@ hideInToc: true
 ```yaml
 layout: image
 image: /images/slide-2.svg
-class: background-size-contain
+class: background-size-contain--dark
 ```
 
 ---
@@ -52,7 +52,7 @@ class: background-size-contain
 ```yaml
 layout: image
 image: /images/slide-3.svg
-class: background-size-contain
+class: background-size-contain--dark
 ```
 
 ---
