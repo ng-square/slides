@@ -1,9 +1,17 @@
 {
   "rewrites": [
-    { "source": "/00_intro/(.*)", "destination": "00_intro/index.html" },
-    { "source": "/01_basic_angular-basics/(.*)", "destination": "01_basic_angular-basics/index.html" },
-    { "source": "/02_js-and-ts/(.*)", "destination": "02_js-and-ts/index.html" },
-    { "source": "/04_change-detection/(.*)", "destination": "04_change-detection/index.html" },
+    {
+      "source": "/01-basic_00-intro/(.*)",
+      "destination": "/01-basic_00-intro/index.html"
+    },
+    {
+      "source": "/01-basic_03-setup/(.*)",
+      "destination": "/01-basic_03-setup/index.html"
+    },
+    {
+      "source": "/01-basic_01-angular-basics/(.*)",
+      "destination": "01-basic_01-angular-basics/index.html"
+    },
     { "source": "/(.*)", "destination": "index.html" }
   ]
 }

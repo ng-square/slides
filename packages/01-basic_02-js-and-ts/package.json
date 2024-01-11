@@ -1,9 +1,9 @@
 {
-  "name": "01_js-and-ts",
+  "name": "01-basic_02-js-and-ts",
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "slidev build --out ../../public/01_js-and-ts --base /01_js-and-ts/",
+    "build": "slidev build --out ../../public/01-basic_02-js-and-ts --base /01-basic_02-js-and-ts/",
     "dev": "slidev --open",
     "export": "slidev export"
   },
