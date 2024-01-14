@@ -1,6 +1,20 @@
 :root {
   --slidev-theme-primary: #d9304c;
-  --slidev-slide-container-background: #121212;
+}
+
+html.dark {
+  --prism-background: #24282e;
+}
+
+html.light {
+  --prism-background: #f1f3f5;
+}
+
+pre.shiki {
+  --shiki-dark: #dbd7ca !important;
+  --shiki-light: #393a34 !important;
+  --shiki-dark-bg: #24282e !important;
+  --shiki-light-bg: #f1f3f5 !important;
 }
 
 html,
@@ -103,6 +117,11 @@ h1 > code {
   background-size: contain !important;
 }
 
+.task-full {
+  background-size: contain !important;
+  background-position: center right !important;
+}
+
 .sum-up ul {
   list-style: none;
 }
@@ -117,4 +136,37 @@ h1 > code {
   margin-right: 1rem;
   color: #d9304c;
   font-weight: 700;
+}
+
+strong {
+  color: #d9304c;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+}
+
+.slidev-layout code:before,
+.slidev-layout code:after {
+  padding: 2px;
+  color: #b8b2ff !important;
+}
+
+.slidev-layout pre code:before,
+.slidev-layout pre code:after {
+  padding: 0 !important;
+}
+
+.slidev-layout ol > li {
+  margin-left: 2rem !important;
+}
+
+.slidev-layout ol > li::marker {
+  color: #be82fa;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.slidev-layout a[href] {
+  color: #b8b2ff;
 }
