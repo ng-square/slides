@@ -16,6 +16,8 @@ hideInToc: true
 
 # Setup
 
+Create an Angular application with the help of build tools.
+
 <div class="pt-12">
   <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
     Press Space for next page <carbon:arrow-right class="inline"/>
@@ -52,8 +54,6 @@ Node.js® is an open-source, cross-platform JavaScript runtime environment.
 
 - Server Scripting with JavaScript
 - pretty widespread in nowadays, keyword: Full-Stack JS
-
-## Links
 
 - [Documentation](https://nodejs.org/en)
 
@@ -100,11 +100,8 @@ npm remove <package>
 npm run <script>
 ```
 
-<br/>
-
-## Links
-
 - [Documentation](https://www.npmjs.com/)
+- [Cheat sheet](https://devhints.io/npm)
 
 ---
 
@@ -131,16 +128,19 @@ layout: image-right
 image: nx.png
 ```
 
-# Nx
+# Nx Workspace
 
-Nx is a build system with built-in tooling and advanced CI capabilities.
+Nx is a build system with built-in tooling.
 
-- quickly scaffold a new project (using Nx plugins)
-- reduces complexity of a project with standards
+- scaffold a new project (using Nx plugins)
+- reduces complexity of a project by using standards
 - supports single and mono-repos
 - custom generators
+- extends [Angular CLI](https://angular.dev/tools/cli)
 
-## Links
+<br/>
+
+### Links
 
 - [Documentation](https://nx.dev/)
 - [Nx Console for IDEA](https://plugins.jetbrains.com/plugin/21060-nx-console)
@@ -190,34 +190,37 @@ The setup includes..
 
 ---
 
-## File structure
+# File structure
 
 ```
 └─ my-app
-   ├─ e2e (Cypress)
-   ├─ src (Application source files)
-   │  ├─ app (Components and Co)
-   │  ├─ assets
+   ├─ e2e (cypress)           🧪 Testing
+   ├─ node_modules            🔧 Local npm repository 🚩
+   ├─ src
+   │  ├─ app                  💄 Application source files
+   │  ├─ assets               🍱 Static files like images
    │  ├─ favicon.ico
    │  ├─ index.html
-   │  ├─ main.ts
-   │  ├─ styles.css
+   │  ├─ main.ts              🚀 Bootstrap application 🚩
+   │  ├─ styles.css           🎨 Global styles 🚩
    │  └─ test-setup.ts
-   ├─ jest.config.ts
-   ├─ jest.preset.js
-   ├─ nx.json
-   ├─ package-lock.json
-   ├─ package.json
-   ├─ project.json
-   ├─ tsconfig.app.json
-   ├─ tsconfig.editor.json
-   ├─ tsconfig.json
-   └─ tsconfig.spec.json
+   ├─ jest.config.ts          🧪 Testing
+   ├─ jest.preset.js          🧪 Testing
+   ├─ nx.json                 🔧 Nx workspace config
+   ├─ package-lock.json       🔧 NPM project config 🚩
+   ├─ package.json            🔧 NPM project config 🚩
+   ├─ project.json            🔧 Nx workspace config (similar to Angular.json)
+   ├─ tsconfig.app.json       🔧 Typescript config
+   ├─ tsconfig.editor.json    🔧 Typescript config
+   ├─ tsconfig.json           🔧 Typescript config
+   └─ tsconfig.spec.json      🔧 Typescript config
 ```
 
 [Application source files](https://angular.io/guide/file-structure#application-source-files)
 
 ---
+
+# Dependency Management
 
 ## package.json
 
@@ -258,8 +261,8 @@ Defines the version of the project and the used dependencies.
 
 ```yaml
 layout: image
-image: wheelbarrel-no-tilde-caret-white-bg-w1000.jpg
-class: background-size-contain
+image: versioning.svg
+class: background-size-contain--dark
 ```
 
 ---
@@ -271,3 +274,234 @@ class: background-size-contain
 - Ensures identical dependency versions.
 
 > ensures that everyone working on the project installs the same versions of dependencies.
+
+---
+
+## Installation of Dependencies
+
+1. Install a dependency directly with the terminal
+
+```bash
+npm install <dependency> -E
+npm add <dependency> -D -E
+npm i <dependency> -D -E
+```
+
+- `-D`, `--save-dev`: Package will appear in your devDependencies.
+- `-E`, `--save-exact`: Saved dependencies will be configured with an exact version.
+
+[npm-install](https://docs.npmjs.com/cli/v8/commands/npm-install#synopsis)
+
+2. Add dependency to your `package.json` manually
+
+```json
+"dependencies": {
+  "@my/dependency": "^0.46.1",
+},
+"devDependencies": {
+  ...
+}
+```
+
+---
+
+```yaml
+layout: image
+image: task.svg
+hideInToc: true
+class: task-full
+```
+
+## Install first Dependencies
+
+1. Install `@ngneat/transloco` as a dependency
+
+<v-click>
+
+```bash
+npm i -E @ngneat/transloco
+```
+
+</v-click>
+
+<br/>
+
+2. Install `@baloise/design-system-cli` as a dev dependency
+
+<v-click>
+
+```bash
+npm i -D -E @baloise/design-system-cli
+```
+
+</v-click>
+
+<br/>
+
+<v-click>
+
+```diff
+{
+  "name": "@my-app/source",
+  "dependencies": {
++   "@ngneat/transloco": "6.0.4",
+  },
+  "devDependencies": {
++   "@baloise/design-system-cli": "0.0.2",
+  }
+}
+
+```
+
+</v-click>
+
+---
+
+## Where are the dependencies
+
+### Local Repository
+
+- the **node_modules** folder contains the local repository with all the installed dependencies
+- Having problems? Delete the folder and rerun npm install
+- Do NOT check in node_modules to your vcs!
+
+---
+
+# NPM Config
+
+npm gets its config settings from the command line, environment variables, and npmrc files.
+
+## .npmrc
+
+- project specific configuration
+- company registry proxy configuration
+
+[Documentation](https://docs.npmjs.com/cli/v9/configuring-npm/npmrc)
+
+---
+
+# Application source files
+
+## src/
+
+- See the [official docs](https://angular.io/guide/file-structure#application-source-files)
+- **src/app subfolder** - where we write code, where you work on in 99% of your time
+
+---
+
+# Setup i18n
+
+Lets use the provided schematics of the library to scaffold the configuration and installation.
+
+```bash
+nx g @ngneat/transloco:ng-add
+```
+
+```bash
+✔ 🌍 Which languages do you need? · en, de
+✔ 🚀 Are you working with server side rendering? (y/N) · false
+CREATE transloco.config.js
+CREATE src/app/transloco-loader.ts
+CREATE src/assets/i18n/en.json
+CREATE src/assets/i18n/de.json
+UPDATE src/app/app.config.ts
+```
+
+---
+
+# Setup Baloise Design System
+
+Lets use the provided schematics of the Baloise Design System to scaffold the configuration and installation.
+
+```bash
+nx g @baloise/design-system-cli:ng-add
+```
+
+```bash
+✔ Are you working with transloco internationalization library? (y/N) · true
+✔ For which region is the app developed · CH
+✔ Packages installed successfully.
+DELETE src/app/nx-welcome.component.ts
+CREATE src/polyfills.ts
+CREATE src/zone-flags.ts
+CREATE src/app/i18n.initialize.ts
+UPDATE project.json
+UPDATE tsconfig.app.json
+UPDATE src/styles.scss
+UPDATE src/app/app.component.ts
+UPDATE src/app/app.component.html
+UPDATE src/app/app.config.ts
+UPDATE package.json
+```
+
+---
+
+# Server the application
+
+Setup is completed, so lets have a look at the scaffolded application.
+
+<br/>
+
+Run the following command in a terminal or use Nx console to server the application.
+
+```bash
+nx serve
+```
+
+```
+> nx run my-app:serve:development
+
+Initial Chunk Files | Names         |  Raw Size
+styles.css          | styles        | 223.76 kB |
+polyfills.js        | polyfills     |  83.58 kB |
+main.js             | main          |   4.40 kB |
+
+                    | Initial Total | 311.74 kB
+
+Application bundle generation complete. [1.435 seconds]
+Watch mode enabled. Watching for file changes...
+```
+
+**➜** Local: [http://localhost:4200/](http://localhost:4200/)
+
+---
+
+```yaml
+layout: image-right
+image: question.svg
+hideInToc: true
+```
+
+# Any Questions
+
+---
+
+```yaml
+layout: image-right
+image: sum-up.svg
+class: sum-up
+hideInToc: true
+```
+
+# Sum Up
+
+<v-click>
+
+- Node.js runtime environment
+
+</v-click>
+<v-click>
+
+- npm dependency management & config
+
+</v-click>
+<v-click>
+
+- Nx build system with standards
+
+</v-click>
+<v-click>
+
+- Angular schematics / cli
+
+</v-click>
