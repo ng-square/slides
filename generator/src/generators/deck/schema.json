@@ -6,13 +6,22 @@
   "properties": {
     "name": {
       "type": "string",
-      "description": "",
+      "description": "Folder name of the new slide deck",
       "$default": {
         "$source": "argv",
         "index": 0
       },
-      "x-prompt": "What is the name of the new slide deck"
+      "x-prompt": "What is the path of the new slide deck"
+    },
+    "title": {
+      "type": "string",
+      "description": "Title of the new slide deck",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What is the title of the new slide deck"
     }
   },
-  "required": ["name"]
+  "required": ["name", "title"]
 }

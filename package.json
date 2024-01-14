@@ -3,9 +3,6 @@
   "version": "0.0.0",
   "license": "MIT",
   "private": true,
-  "script": {
-    "build": "nx run-many -t build --all"
-  },
   "devDependencies": {
     "@nx/eslint": "17.2.8",
     "@nx/eslint-plugin": "17.2.8",
