@@ -116,5 +116,7 @@ Nx is a build system with built-in tooling and advanced CI capabilities . It hel
 - [Documentation](https://nx.dev/)
 - [Getting Started](https://nx.dev/getting-started/intro)
 - [Angular Setup](https://nx.dev/getting-started/tutorials/angular-standalone-tutorial)
+- [Nx Console for IDEA](https://plugins.jetbrains.com/plugin/21060-nx-console)
+- [Nx Console for VSCode](https://marketplace.visualstudio.com/items?itemName=nrwl.angular-console)
 
 ---
