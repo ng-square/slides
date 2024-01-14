@@ -1,6 +1,12 @@
 :root {
   --slidev-theme-primary: #d9304c;
-  --slidev-slide-container-background: #121212;
+}
+
+pre.shiki {
+  --shiki-dark: #dbd7ca;
+  --shiki-light: #393a34;
+  --shiki-dark-bg: #282828;
+  --shiki-light-bg: #ffffff;
 }
 
 html,
@@ -103,6 +109,11 @@ h1 > code {
   background-size: contain !important;
 }
 
+.task-full {
+  background-size: contain !important;
+  background-position: center right !important;
+}
+
 .sum-up ul {
   list-style: none;
 }
@@ -117,4 +128,12 @@ h1 > code {
   margin-right: 1rem;
   color: #d9304c;
   font-weight: 700;
+}
+
+strong {
+  color: #d9304c;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
 }
