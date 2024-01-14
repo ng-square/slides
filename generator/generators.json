@@ -1,0 +1,9 @@
+{
+  "generators": {
+    "deck": {
+      "factory": "./src/generators/deck/generator",
+      "schema": "./src/generators/deck/schema.json",
+      "description": "deck generator"
+    }
+  }
+}
