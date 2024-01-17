@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "Deck",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Folder name of the new slide deck",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What is the path of the new slide deck"
+    },
+    "title": {
+      "type": "string",
+      "description": "Title of the new slide deck",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What is the title of the new slide deck"
+    }
+  },
+  "required": ["name", "title"]
+}
