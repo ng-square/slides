@@ -8,17 +8,17 @@
 - [x] TypeScript & JS
 - [] Setup Node.js & NX & Angular @hirsch88
   - file structure
-- [] Design System
+- [] Design System @hirsch88
 - Components @yannickholzenkamp
- - [] properties
- - [] templates
- - [] event handling
- - [] inputs
- - [] outputs
- - [] control flows
- - [] lifecyle
- - [] pipes
- - [] architecure / nested
+  - [] properties
+  - [] templates
+  - [] event handling
+  - [] inputs
+  - [] outputs
+  - [] control flows
+  - [] lifecyle
+  - [] pipes
+  - [] architecure / nested
 - [] DI / Inject-based dependency injection
 - [] module / standalone
 - [] service

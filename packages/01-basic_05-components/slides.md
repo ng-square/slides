@@ -55,9 +55,18 @@ hideInToc: true
 
 ![components](components_example.png)
 
+
+---
+layout: two-cols-header
 ---
 
 ## Component hierarchy
+
+::left::
+
+![components](components_example.png)
+
+::right::
 
 ```mermaid
 graph TD;
@@ -70,8 +79,12 @@ graph TD;
 ```
 
 ---
+layout: two-cols-header
+---
 
 # How to create a component?
+
+::left::
 
 ```ts
 import { Component } from '@angular/core';
@@ -87,9 +100,7 @@ import { CommonModule } from '@angular/common';
 export class PizzaShopComponent {}
 ```
 
----
-
-## Requirements for a component
+::right::
 
 - `@Component()` decorator with configuration object parameter 
   - `selector`: identifier of the component in other templates
@@ -98,9 +109,9 @@ export class PizzaShopComponent {}
   - references to `templateUrl` and `styleUrl`
   - Template and styles can also be defined inline
 
---- 
+---
 
-# Task 5.1
+# Task B5.1
 
 FIXME
 - adjust the app.component to display a dummy text
@@ -109,7 +120,7 @@ FIXME
 
 --- 
 
-## Task 5.1 - Example solution
+## Task B5.1 - Example solution
 
 TODO
 
