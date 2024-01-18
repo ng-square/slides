@@ -53,7 +53,7 @@ hideInToc: true
 
 ## Components in the example application
 
-![components](components_example.png)
+![components](/components_example.png)
 
 
 ---
@@ -64,7 +64,7 @@ layout: two-cols-header
 
 ::left::
 
-![components](components_example.png)
+![components](/components_example.png)
 
 ::right::
 
