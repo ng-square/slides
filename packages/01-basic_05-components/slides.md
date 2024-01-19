@@ -223,8 +223,6 @@ TODO
 | Two-way                     | `[(property)] = "expression"`                       | Two-way                        | 
 
 ---
-class: large-code
----
 
 ## Property Bindings
 
@@ -279,8 +277,6 @@ TODO
 - DOM Properties can change, attributes can not
 - Bindings in Angular only work with DOM properties and events, <strong>NOT</strong> with HTML attributes
 
----
-class: large-code
 ---
 
 ## Event bindings

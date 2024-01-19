@@ -18,8 +18,7 @@
   background-position: center right !important;
 }
 
-.large-code > .slidev-code-wrapper > pre {
-  font-size: 20px !important;
+pre {
   padding-bottom: 20px !important;
 }
 
