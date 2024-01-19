@@ -110,6 +110,11 @@ export class PizzaShopComponent {}
   - Template and styles can also be defined inline
 
 ---
+layout: image
+image: task.svg
+class: task-full
+hideInToc: true
+---
 
 # Task B5.1
 
@@ -125,5 +130,194 @@ FIXME
 TODO
 
 ---
+layout: two-cols-header
+---
 
 # Templates
+
+## Interpolation
+
+::left::
+
+```ts
+// template
+<h1>{{appTitle}}</h1>
+<p>{{pizza.name}}</p>
+<p>{{addDelivery(pizza.price)}}</p>
+<a href="/pizza/{{pizza.id}}">Details</a>
+
+// typescript
+appTitle = 'pizza shop';
+pizza = {
+   id: 1,
+   name: "Hawaii",
+   price: 25
+};
+
+addDelivery(price: number) {
+   return price + 5;
+}
+```
+
+::right::
+
+- Interpolation = double courly braces `{{}}`
+- Uses properties or functions of the component
+- Interpolation is being replaced by the actual value
+- `Template Expression` between the braces - e.g. for `addDelivery`
+  - The expression is evaluated first, converted to a string and concatenated with other strings. Last, the value is assigned to the element.
+
+---
+layout: image
+image: task.svg
+class: task-full
+hideInToc: true
+---
+
+# Task B5.2
+
+- Create an address as an object literal. Use the fields street, town, zip code
+- show the fields in a list
+- write a function that outputs the whole address as a string
+- Hint: unordered lists look like this
+
+--- 
+
+## Task B5.3 - Example solution
+
+TODO
+
+--- 
+
+## Template Expressions
+
+- between the interpolation parentheses, there is a so called expression `{{1 + 1}}`
+- a reduced set of JavaScript
+- no assignments allowed (=, +=, *=, ...)
+- no new
+- no side effects, as ++ (idempotency, pure Functions)
+
+---
+
+## Template Statements
+
+- execution of side effects
+- react to events (user actions)
+
+```ts
+<button (click)="deleteCustomer()">
+    Delete Customer
+</button>
+```
+
+---
+
+# Bindings
+
+## Overview
+
+| Direction                   | Syntax                                              | Name                           |
+|---                          |---                                                  |---                             |
+| One-way, Component to View  | `{{expression}}` <br> `[property] = "expression"`   | Property, Attribute, Style,... | 
+| One-way, View to Component  | `(event) = "statement()"`                           | Event                          | 
+| Two-way                     | `[(property)] = "expression"`                       | Two-way                        | 
+
+---
+class: large-code
+---
+
+## Property Bindings
+
+### Examples
+
+```ts
+<a [href]="url">Click me</a>
+```
+
+```ts
+<button [disabled]="bool">Disabled: {{bool}}</button>
+```
+
+```ts
+<postal-address [street]="address.street"></postal-address>
+```
+
+---
+layout: image
+image: task.svg
+class: task-full
+hideInToc: true
+---
+
+# Task B5.3
+
+- Add an input element
+- Bind the value of the street to the value-property of the input field
+- Use a bal-input element
+
+--- 
+
+## Task B5.3 - Example solution
+
+TODO
+
+---
+
+## HTML and DOM
+
+- DOM is not really a model it is more or less an API to access HTML
+- HTML knows attributes (e.g. `value`)
+- DOM knows properties (e.g. `value`)
+- HTML `value` is the inital value
+- DOM `value` is the current value
+
+---
+
+## Attributes vs. Properties
+
+- HTML Attribute initialize DOM Properties
+- DOM Properties can change, attributes can not
+- Bindings in Angular only work with DOM properties and events, <strong>NOT</strong> with HTML attributes
+
+---
+class: large-code
+---
+
+## Event bindings
+
+### Examples
+
+```ts
+<button (click)="createPerson()">New Person</button>
+```
+
+```ts
+<postal-address (customevent)="doSth()"></postal-address>
+```
+
+```ts
+<people (deletePerson)="delete($event)">
+```
+
+---
+layout: image
+image: task.svg
+class: task-full
+hideInToc: true
+---
+
+# Task B5.4
+
+- Add a Button
+- You can use the bal-button
+- Once clicked, call a method that prints sth. on the javascript console
+
+--- 
+
+## Task B5.3 - Example solution
+
+TODO
+
+---
+
+to be continued

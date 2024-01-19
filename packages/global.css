@@ -1,13 +1,35 @@
 .two-cols-header {
-    grid-template-rows: auto 1fr !important;
-}
-  
-.two-cols-header > .col-header {
-    padding-bottom: 30px !important;
+  grid-template-rows: auto 1fr !important;
 }
 
-.two-cols-header > .col-left, .two-cols-header > .col-right {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
+.two-cols-header > .col-header {
+  padding-bottom: 30px !important;
 }
+
+.two-cols-header > .col-left,
+.two-cols-header > .col-right {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.task-full {
+  background-size: contain !important;
+  background-position: center right !important;
+}
+
+.large-code > .slidev-code-wrapper > pre {
+  font-size: 20px !important;
+  padding-bottom: 20px !important;
+}
+
+h1,
+h2,
+h3 {
+  padding-bottom: 30px;
+}
+
+strong {
+    color: #d9304c !important;
+}
+
