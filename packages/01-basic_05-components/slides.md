@@ -310,10 +310,71 @@ hideInToc: true
 
 --- 
 
-## Task B5.3 - Example solution
+## Task B5.4- Example solution
 
 TODO
 
 ---
 
-to be continued
+## Event object ($event)
+
+- Contains information about the event
+- If it's a native event, `$event` is a DOM event object
+  - with properties like `target.value`
+- Events have a type. E.g. `KeyboardEvent`, `MouseEvent` or custom events
+
+```ts
+<input (input)="print($event.target.value)">
+print(value) {
+   console.log(value);  
+}
+
+// or
+
+<input (input)="printEvent($event)">
+printEvent(event) {
+   console.log(event.target.value);
+}
+```
+
+---
+layout: image
+image: task.svg
+class: task-full
+hideInToc: true
+---
+
+# Task B5.5
+
+- Add an Input element.
+- Print any new value on the console that starts with the letter 's'.
+
+--- 
+
+## Task B5.5 - Example solution
+
+TODO
+
+---
+layout: image
+image: task.svg
+class: task-full
+hideInToc: true
+---
+
+# Task B5.6
+
+- Create a self-created two-way data binding for an Input field.
+- Create an input field with a binding for a string, e.g. "name".
+- Create a text block (<p>-Tag) containing the value from the input field.
+- Use a Property binding, an Event binding and a variable in the component.
+
+--- 
+
+## Task B5.6 - Example solution
+
+TODO
+
+---
+
+## Template reference variable
