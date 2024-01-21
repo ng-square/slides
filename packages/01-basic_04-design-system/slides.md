@@ -14,7 +14,8 @@ image: images/gradient-icon---large.gif
 hideInToc: true
 ```
 
-## Baloise 
+## Baloise
+
 # Design System
 
 <div class="pt-12">
@@ -146,7 +147,11 @@ Font files are provided in a separate package.
 <br/>
 
 ```html
-<bal-heading level="h1">Heading</bal-heading> <bal-text>Text</bal-text>
+<bal-heading level="h1">Heading</bal-heading> 
+```
+
+```html
+<bal-text>Text</bal-text>
 ```
 
 ---
@@ -229,16 +234,7 @@ export class MyComponent {
 }
 ```
 
---- 
-
-# Testing
-
---- 
-
-```yaml
-layout: image-right
-image: issues.png
-```
+---
 
 # Bugs / Features & Co.
 
