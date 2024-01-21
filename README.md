@@ -6,9 +6,9 @@
  - speackers
 - [x] Basic Angular What is that
 - [x] TypeScript & JS
-- [] Setup Node.js & NX & Angular @hirsch88
+- [X] Setup Node.js & NX & Angular @hirsch88
   - file structure
-- [] Design System @hirsch88
+- [X] Design System @hirsch88
 - Components @yannickholzenkamp
   - [] properties
   - [] templates
