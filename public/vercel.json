@@ -5,10 +5,6 @@
       "destination": "/00-cheat-sheet/index.html"
     },
     {
-      "source": "/00_template/(.*)",
-      "destination": "/00_template/index.html"
-    },
-    {
       "source": "/01-basic_00-intro/(.*)",
       "destination": "/01-basic_00-intro/index.html"
     },
@@ -25,16 +21,16 @@
       "destination": "/01-basic_03-setup/index.html"
     },
     {
+      "source": "/01-basic_04-design-system/(.*)",
+      "destination": "/01-basic_04-design-system/index.html"
+    },
+    {
       "source": "/01-basic_05-components/(.*)",
       "destination": "/01-basic_05-components/index.html"
     },
     {
       "source": "/03-advanced_02-change-detection/(.*)",
       "destination": "/03-advanced_02-change-detection/index.html"
-    },
-    {
-      "source": "/04_change-detection/(.*)",
-      "destination": "/04_change-detection/index.html"
     }
   ]
 }
