@@ -16,7 +16,6 @@
   - [] lifecyle
   - [] pipes
   - [] architecure / nested
-  - [] add tasks for example app
 - [] Pipes
 - [] DI / Inject-based dependency injection
 - [] module / standalone

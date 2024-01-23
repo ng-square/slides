@@ -110,26 +110,6 @@ export class PizzaShopComponent {}
   - Template and styles can also be defined inline
 
 ---
-layout: image
-image: task.svg
-class: task-full
-hideInToc: true
----
-
-# Task B5.1
-
-FIXME
-- adjust the app.component to display a dummy text
-- add comment in example app where to do this task
-- use design systems (add docs here)
-
---- 
-
-## Task B5.1 - Example solution
-
-TODO
-
----
 layout: two-cols-header
 ---
 
@@ -174,18 +154,55 @@ class: task-full
 hideInToc: true
 ---
 
-# Task B5.2
+# Task B5.1 - Interpolation
 
-- Create an address as an object literal. Use the fields street, town, zip code
-- show the fields in a list
-- write a function that outputs the whole address as a string
-- Hint: unordered lists look like this
+- Create an object literal of a `Customer`
+  - It should have the fields: `id`, `name`, `address`, `phoneNumber`
+- Display the fields of `Customer` using an unordered list
+- Write a function that combines the name and address as a string
+  - Use it to display the output in a paragraph
+
+
+```html
+<!-- unordered list -->
+<ul>
+  <li>item</li>
+</ul>
+
+<!-- paragraph -->
+<p>this is a paragraph</p>
+```
 
 --- 
 
-## Task B5.3 - Example solution
+## Example solution: Task B5.1 - Interpolation
 
-TODO
+Template:
+
+```html
+<ul>
+  <li>{{customer.id}}</li>
+  <li>{{customer.name}}</li>
+  <li>{{customer.address}}</li>
+  <li>{{customer.phoneNumber}}</li>
+</ul>
+<p>{{getNameAndAddressOfCustomer()}}</p>
+```
+
+TypeScript:
+
+```ts
+customer = {
+  id: 1,
+  name: 'Peter Griffin',
+  address: '31 Spooner Street, Quahog',
+  phoneNumber: '123456789'
+};
+
+getNameAndAddressOfCustomer() {
+  return `${this.customer.name} - ${this.customer.address}`;
+}
+```
 
 --- 
 
@@ -247,17 +264,23 @@ class: task-full
 hideInToc: true
 ---
 
-# Task B5.3
+# Task B5.2 - Property binding
 
-- Add an input element
-- Bind the value of the street to the value-property of the input field
-- Use a bal-input element
+- Add an `input` element to your template
+  - You may use the `bal-input`
+- Bind the value of the customer's `name` to the `value`-property of the `input` field
 
 --- 
 
-## Task B5.3 - Example solution
+## Example solution: Task B5.2 - Property binding
 
-TODO
+Template:
+
+```html
+<input [value]="customer.name">
+<!-- or -->
+<bal-input [value]="customer.name"></bal-input>
+```
 
 ---
 
@@ -302,17 +325,32 @@ class: task-full
 hideInToc: true
 ---
 
-# Task B5.4
+# Task B5.3 - Event binding
 
-- Add a Button
-- You can use the bal-button
-- Once clicked, call a method that prints sth. on the javascript console
+- Add a `button` element to your template
+  - You may use the `bal-button`
+- When the button is clicked, print `clicked` to the browser's Javascript console
+  - Printing to the console is done with `console.log('something');`
 
 --- 
 
-## Task B5.4- Example solution
+## Example solution: Task B5.3 - Event binding
 
-TODO
+Template:
+
+```html
+<button (click)="log()">log</button>
+<!-- or -->
+<bal-button (click)="log()">log</bal-button>
+```
+
+TypeScript:
+
+```ts
+log() {
+  console.log('hello world');
+}
+```
 
 ---
 
@@ -344,16 +382,33 @@ class: task-full
 hideInToc: true
 ---
 
-# Task B5.5
+# Task B5.4 - Event object
 
-- Add an Input element.
-- Print any new value on the console that starts with the letter 's'.
+- Add an `input` element to your template
+  - You may use the `bal-input`
+- Print any new value to the console that starts with the letter 's'.
 
 --- 
 
-## Task B5.5 - Example solution
+## Example solution: Task B5.4 - Event object
 
-TODO
+Template:
+
+```html
+<input (input)="printSValues($event.target.value)">
+<!-- or -->
+<bal-input (balinput)="printSValues($event.detail)"></bal-input>
+```
+
+TypeScript:
+
+```ts
+printSValues(val: number | string | null) {
+  if(typeof val === "string" && val.toLowerCase().startsWith("s")) {
+    console.log(val);
+  }
+}
+```
 
 ---
 layout: image
@@ -362,45 +417,112 @@ class: task-full
 hideInToc: true
 ---
 
-# Task B5.6
+# Task B5.5 - Two way data binding
 
-- Create a self-created two-way data binding for an Input field.
-- Create an input field with a binding for a string, e.g. "name".
-- Create a text block (`<p>`-Tag) containing the value from the input field.
-- Use a Property binding, an Event binding and a variable in the component.
+- Create a self-created two-way data binding for an input field
+- Add an `input` element to your template 
+  - You may use the `bal-input`
+  - Create a string variable (e.g. `name`) and bind that to the input field
+- Add a paragraph (`<p></p>`) to your template
+  - The paragraph should contain the value of the input field
+- Use a property binding, an event binding and a variable in the component.
 
 --- 
 
-## Task B5.6 - Example solution
+## Example solution: Task B5.5 - Two way data binding
 
-TODO
+Template:
 
+```html
+<input [value]="name" (input)="name=$event.target.value">
+<p>{{name}}</p>
+```
+
+TypeScript:
+
+```ts
+name = 'Peter Griffin';
+```
+
+---
+layout: two-cols-header
 ---
 
 ## Template reference variable
 
-FIXME
+::left::
+
+```ts
+// template
+<input #note>
+<button (click)="print(note.value)">Print value</button>
+
+// typescript
+print(value) {
+  console.log(value);
+}
+```
+
+::right::
+
+- Can be used with the `#`-syntax in the template of components
+- Used to reference a DOM element or a component
+- A reference to an input element returns the actual element (like `$event.target` would)
+
+---
+layout: image
+image: task.svg
+class: task-full
+hideInToc: true
+---
+
+# Task B5.6 - Template reference variable
+
+- Add a `button` and a `checkbox` element to your template 
+  - you may use `bal-button` and `bal-checkbox`
+- The checkbox should enable / disable the button
+- Use a template reference variable
+- Hints:
+  - a `button` or `bal-button` has a `disabled` property
+  - a `bal-checkbox` has a `balChange` event
+  - a `checkbox` has a `change` event
+
+--- 
+
+## Example solution: Task B5.6 - Template reference variable
+
+Template:
+
+```html
+<bal-checkbox (balchange)="btn.disabled = !btn.disabled"></bal-checkbox>
+<bal-button #btn>Button</bal-button>
+
+<!-- or -->
+
+<checkbox (change)="btn.disabled = !btn.disabled"></checkbox>
+<button #btn>Button</button>
+```
 
 ---
 
 # Control flows
 
-FIXME
+TODO
 
 ---
 
 # Lifecycle
 
-FIXME
+TODO
 
 --- 
 
 # Pipes
 
-FIXME
+TODO
 
 ---
 
 # Component Architecture
 
-FIXME
+TODO
