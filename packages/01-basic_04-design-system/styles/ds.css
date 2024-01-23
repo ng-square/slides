@@ -1,0 +1,248 @@
+@font-face {
+  font-family: 'BaloiseCreateHeadline';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('BaloiseCreateHeadline'), local('BaloiseCreateHeadline-bold'),
+    url('https://www.baloise.ch/app-integration/assets/fonts/BaloiseCreateHeadline-bold.woff2')
+      format('woff2'),
+    url('https://www.baloise.ch/app-integration/assets/fonts/BaloiseCreateHeadline-bold.woff')
+      format('woff');
+}
+
+@font-face {
+  font-family: 'BaloiseCreateHeadline';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: local('BaloiseCreateHeadline'), local('BaloiseCreateHeadline-light'),
+    url('https://www.baloise.ch/app-integration/assets/fonts/BaloiseCreateHeadline-light.woff2')
+      format('woff2'),
+    url('https://www.baloise.ch/app-integration/assets/fonts/BaloiseCreateHeadline-light.woff')
+      format('woff');
+}
+
+@font-face {
+  font-family: 'BaloiseCreateText';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('BaloiseCreateText'), local('BaloiseCreateText-bold'),
+    url('https://www.baloise.ch/app-integration/assets/fonts/BaloiseCreateText-bold.woff2')
+      format('woff2'),
+    url('https://www.baloise.ch/app-integration/assets/fonts/BaloiseCreateText-bold.woff')
+      format('woff');
+}
+
+@font-face {
+  font-family: 'BaloiseCreateText';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('BaloiseCreateText'), local('BaloiseCreateText-regular'),
+    url('https://www.baloise.ch/app-integration/assets/fonts/BaloiseCreateText-regular.woff2')
+      format('woff2'),
+    url('https://www.baloise.ch/app-integration/assets/fonts/BaloiseCreateText-regular.woff')
+      format('woff');
+}
+
+:root {
+  --slidev-slide-container-background: #fafafa;
+  --un-bg-opacity: 0;
+  --un-text-opacity: 0;
+  color: #0b0d6e;
+}
+
+#slide-content {
+  color: #0b0d6e;
+}
+
+.dark #slide-container {
+  --slidev-slide-container-background: #000d6e !important;
+}
+
+.dark .bg-main{
+  background-color: rgba(0, 13, 110, 0.8) !important;
+}
+
+.dark #slide-content {
+  --un-bg-opacity: 0;
+  --un-text-opacity: 0;
+  color: #fff;
+}
+
+pre.shiki {
+  --shiki-dark: #dbd7ca !important;
+  --shiki-light: #393a34 !important;
+  --shiki-dark-bg: #000739 !important;
+  --shiki-dark-bg: rgba(0, 7, 57, 0.9) !important;
+  --shiki-light-bg: #f1f3f5 !important;
+  --shiki-light-bg: rgba(241, 243, 245, 0.9) !important;
+}
+
+html,
+body,
+#app,
+#page-root {
+  font-family: BaloiseCreateText, -apple-system, BlinkMacSystemFont, avenir next,
+    avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto,
+    arial, sans-serif;
+  font-variant-ligatures: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: BaloiseCreateHeadline, Inter, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1 + p {
+  opacity: 1 !important;
+}
+
+.slidev-layout blockquote {
+  margin-top: 16px;
+  padding: 8px;
+  border-left-width: 4px;
+}
+
+.slidev-layout code:before,
+.slidev-layout code:after,
+h1 > code:before,
+h1 > code:after {
+  content: '';
+}
+
+.background-size-contain {
+  background-size: contain !important;
+}
+
+.background-size-contain--dark {
+  background-color: #fff;
+  background-size: contain !important;
+}
+
+.task-full {
+  background-size: contain !important;
+  background-position: center right !important;
+}
+
+.sum-up ul {
+  list-style: none;
+}
+
+.sum-up ul li {
+  margin: 0;
+  padding-bottom: 0.2rem;
+}
+
+.sum-up ul li:before {
+  content: '✓';
+  margin-right: 1rem;
+  color: #d9304c;
+  font-weight: 700;
+}
+
+strong {
+  color: #d9304c;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+}
+
+.slidev-layout code:before,
+.slidev-layout code:after {
+  padding: 2px;
+  color: #b8b2ff !important;
+}
+
+.slidev-layout pre code:before,
+.slidev-layout pre code:after {
+  padding: 0 !important;
+}
+
+.slidev-layout ol > li {
+  margin-left: 2rem !important;
+}
+
+.slidev-layout ol > li::marker {
+  color: #b8b2ff;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.slidev-layout a[href] {
+  color: #000d6e;
+  font-weight: 700;
+  text-underline-offset: 0.25rem;
+  text-decoration-thickness: 0.25rem;
+  text-decoration: underline;
+  border: none;
+}
+
+.slidev-layout a[href]:hover {
+  color: #0014aa;
+}
+
+.slidev-layout a[href]:active {
+  color: #000739;
+}
+
+.dark #slide-content .slidev-layout a[href] {
+  color: #fff;
+}
+
+.dark #slide-content .slidev-layout a[href]:hover {
+  color: #a4c9ed;
+}
+
+.dark #slide-content .slidev-layout a[href]:active {
+  color: #6672cc;
+}
+
+.two-cols-header {
+  grid-template-rows: auto 1fr !important;
+}
+
+.two-cols-header > .col-header {
+  padding-bottom: 30px !important;
+}
+
+.two-cols-header > .col-left,
+.two-cols-header > .col-right {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+pre {
+  padding-bottom: 20px !important;
+}
+
+strong {
+  color: #d9304c !important;
+}
+
+.image-right-full {
+  width: 200%;
+}
+
+.image-right-full ~ div,
+.image-right-ds ~ div {
+  border: 4px solid #fafafa;
+  background: #fafafa;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 0 10px 0 rgba(0, 7, 57, 0.15);
+  height: 90%;
+  margin-top: 5%;
+  margin-right: 5%;
+}

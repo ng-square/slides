@@ -8,21 +8,10 @@ info: false
 drawings:
   persist: false
 
-layout: cover
-background: https://images.unsplash.com/photo-1513116917658-bdc8f9e49348?q=80&w=2400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
-image: images/gradient-icon---large.gif
+layout: image
+image: banner.svg
 hideInToc: true
 ```
-
-## Baloise
-
-# Design System
-
-<div class="pt-12">
-  <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
-    Press Space for next page <carbon:arrow-right class="inline"/>
-  </span>
-</div>
 
 <div class="abs-br m-6 flex gap-2">
   <a href="https://github.com/ng-square/slides" target="_blank" alt="GitHub" title="Open in GitHub"
@@ -46,6 +35,7 @@ hideInToc: true
 ```yaml
 layout: image-right
 image: overview.png
+class: image-right-ds
 ```
 
 # Definition
@@ -61,6 +51,7 @@ A design system is a collection of reusable components, guided by clear standard
 ```yaml
 layout: image-right
 image: tokens.png
+class: image-right-ds
 ```
 
 # Design Tokens
@@ -255,9 +246,8 @@ Documentation is automatically deployed on Vercel.
 ---
 
 ```yaml
-layout: image-right
-image: question.svg
+layout: intro
 hideInToc: true
 ```
 
-# Any Questions
+# Any Questions ?
