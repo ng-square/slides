@@ -82,7 +82,7 @@ graph TD;
 layout: two-cols-header
 ---
 
-# How to create a component?
+## How to create a component?
 
 ::left::
 
@@ -366,7 +366,7 @@ hideInToc: true
 
 - Create a self-created two-way data binding for an Input field.
 - Create an input field with a binding for a string, e.g. "name".
-- Create a text block (<p>-Tag) containing the value from the input field.
+- Create a text block (`<p>`-Tag) containing the value from the input field.
 - Use a Property binding, an Event binding and a variable in the component.
 
 --- 
@@ -378,3 +378,29 @@ TODO
 ---
 
 ## Template reference variable
+
+FIXME
+
+---
+
+# Control flows
+
+FIXME
+
+---
+
+# Lifecycle
+
+FIXME
+
+--- 
+
+# Pipes
+
+FIXME
+
+---
+
+# Component Architecture
+
+FIXME

@@ -10,15 +10,13 @@
   - file structure
 - [X] Design System @hirsch88
 - Components @yannickholzenkamp
-  - [] properties
-  - [] templates
-  - [] event handling
-  - [] inputs
-  - [] outputs
+  - [X] templates
+  - [X] input / output bindings
   - [] control flows
   - [] lifecyle
   - [] pipes
   - [] architecure / nested
+- [] Pipes
 - [] DI / Inject-based dependency injection
 - [] module / standalone
 - [] service
