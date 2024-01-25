@@ -110,10 +110,14 @@ export class PizzaShopComponent {}
   - Template and styles can also be defined inline
 
 ---
-layout: two-cols-header
+layout: cover
 ---
 
 # Templates
+
+---
+layout: two-cols-header
+---
 
 ## Interpolation
 
@@ -227,11 +231,91 @@ getNameAndAddressOfCustomer() {
 </button>
 ```
 
+
+---
+layout: two-cols-header
+---
+
+## Template reference variable
+
+::left::
+
+```ts
+// template
+<input #note>
+<button (click)="print(note.value)">Print value</button>
+
+// typescript
+print(value) {
+  console.log(value);
+}
+```
+
+::right::
+
+- Can be used with the `#`-syntax in the template of components
+- Used to reference a DOM element or a component
+- A reference to an input element returns the actual element (like `$event.target` would)
+
+---
+layout: image
+image: task.svg
+class: task-full
+hideInToc: true
+---
+
+# Task B5.2 - Template reference variable
+
+- Add a `button` and a `checkbox` element to your template 
+  - you may use `bal-button` and `bal-checkbox`
+- The checkbox should enable / disable the button
+- Use a template reference variable
+- Hints:
+  - a `button` or `bal-button` has a `disabled` property
+  - a `bal-checkbox` has a `balChange` event
+  - a `checkbox` has a `change` event
+
+--- 
+
+## Example solution: Task B5.2 - Template reference variable
+
+Template:
+
+```html
+<bal-checkbox (balchange)="btn.disabled = !btn.disabled"></bal-checkbox>
+<bal-button #btn>Button</bal-button>
+
+<!-- or -->
+
+<checkbox (change)="btn.disabled = !btn.disabled"></checkbox>
+<button #btn>Button</button>
+```
+
+---
+
+## Safe navigation operator
+
+- used with `?.`
+- to avoid accessing properties of undefined objects
+- the value is only rendered if all properties can be accessed
+- lightweight alternative to chained `*ngIf` or chained null checks with `&&`
+
+Example:
+
+```html
+<p>Name: {{comp?.ceo?.name}}</p>
+<p>Name: {{comp && comp.ceo && comp.ceo.name}}</p>
+```
+
+---
+layout: cover
 ---
 
 # Bindings
 
-## Overview
+--- 
+
+## Bindings Overview
 
 | Direction                   | Syntax                                              | Name                           |
 |---                          |---                                                  |---                             |
@@ -264,7 +348,7 @@ class: task-full
 hideInToc: true
 ---
 
-# Task B5.2 - Property binding
+# Task B5.3 - Property binding
 
 - Add an `input` element to your template
   - You may use the `bal-input`
@@ -272,7 +356,7 @@ hideInToc: true
 
 --- 
 
-## Example solution: Task B5.2 - Property binding
+## Example solution: Task B5.3 - Property binding
 
 Template:
 
@@ -325,7 +409,7 @@ class: task-full
 hideInToc: true
 ---
 
-# Task B5.3 - Event binding
+# Task B5.4 - Event binding
 
 - Add a `button` element to your template
   - You may use the `bal-button`
@@ -334,7 +418,7 @@ hideInToc: true
 
 --- 
 
-## Example solution: Task B5.3 - Event binding
+## Example solution: Task B5.4 - Event binding
 
 Template:
 
@@ -382,7 +466,7 @@ class: task-full
 hideInToc: true
 ---
 
-# Task B5.4 - Event object
+# Task B5.5 - Event object
 
 - Add an `input` element to your template
   - You may use the `bal-input`
@@ -390,7 +474,7 @@ hideInToc: true
 
 --- 
 
-## Example solution: Task B5.4 - Event object
+## Example solution: Task B5.5 - Event object
 
 Template:
 
@@ -417,7 +501,7 @@ class: task-full
 hideInToc: true
 ---
 
-# Task B5.5 - Two way data binding
+# Task B5.6 - Two way data binding
 
 - Create a self-created two-way data binding for an input field
 - Add an `input` element to your template 
@@ -429,7 +513,7 @@ hideInToc: true
 
 --- 
 
-## Example solution: Task B5.5 - Two way data binding
+## Example solution: Task B5.6 - Two way data binding
 
 Template:
 
@@ -445,84 +529,192 @@ name = 'Peter Griffin';
 ```
 
 ---
-layout: two-cols-header
----
 
-## Template reference variable
+## Class binding
 
-::left::
+- for dynamic css classes
 
-```ts
-// template
-<input #note>
-<button (click)="print(note.value)">Print value</button>
-
-// typescript
-print(value) {
-  console.log(value);
-}
-```
-
-::right::
-
-- Can be used with the `#`-syntax in the template of components
-- Used to reference a DOM element or a component
-- A reference to an input element returns the actual element (like `$event.target` would)
-
----
-layout: image
-image: task.svg
-class: task-full
-hideInToc: true
----
-
-# Task B5.6 - Template reference variable
-
-- Add a `button` and a `checkbox` element to your template 
-  - you may use `bal-button` and `bal-checkbox`
-- The checkbox should enable / disable the button
-- Use a template reference variable
-- Hints:
-  - a `button` or `bal-button` has a `disabled` property
-  - a `bal-checkbox` has a `balChange` event
-  - a `checkbox` has a `change` event
-
---- 
-
-## Example solution: Task B5.6 - Template reference variable
-
-Template:
+Example for a single class:
 
 ```html
-<bal-checkbox (balchange)="btn.disabled = !btn.disabled"></bal-checkbox>
-<bal-button #btn>Button</bal-button>
-
-<!-- or -->
-
-<checkbox (change)="btn.disabled = !btn.disabled"></checkbox>
-<button #btn>Button</button>
+<div [class.active]="customer.active"></div>
 ```
 
+Example for multiple classes:
+
+```html
+<div [ngClass]="{
+  'active': customer.active,
+  'inactive': !customer.active}">
+</div>
+```
+
+---
+
+## Style binding
+
+- for dynamic css styles
+- <strong>usage not recommended</strong>
+
+Exmple:
+
+```html
+<span [style.font-weight]="pers.isVip ? 'bold' : 'normal'">
+</span>
+```
+
+---
+layout: cover
 ---
 
 # Control flows
 
-TODO
+--- 
 
+## About control flows
+
+- Used to show, hide and repeat elements
+- Three elements: `@if`, `@for` and `@switch`
+- Available since Angular 17
+- Alternative: Strctural directives
+  - `*ngIf`, `*ngFor`, `*ngSwitch`
+
+---
+
+## @if 
+
+- Will display content if the conditional expression is truthy
+  - Element is removed from DOM when `@if` is falsy, compared to just hiding with CSS
+- Can be associated with one or more `@else` blocks
+- Directly after the if block there can be one or more `@else if` blocks
+
+Example: 
+
+```html
+@if (a > b) {
+  {{a}} is greater than {{b}}
+} @else if (b > a) {
+  {{a}} is less than {{b}}
+} @else {
+  {{a}} is equal to {{b}}
+}
+```
+
+Old syntax: `<div *ngIf="a > b"></div>`
+
+--- 
+
+## @if - reference the conditional expression's result
+
+- The result of the conditional expression might be assigned to a variable which can be used in the `@if` block
+
+Example:
+
+```html
+@if (users$ | async; as users) {
+  {{ users.length }}
+}
+```
+
+---
+
+## @for
+
+- Used render content repeatedly for each item in a collection
+- `track` expression determines the key of the array items 
+  - Used to reduce DOM operations
+- Inside the `@for` there are iteration variables available
+  - `$count`, `$index`, `$first`, `$last`, `$even`, `$odd`
+
+Example:
+
+```html
+@for (item of items; track item.id; let idx = $index, e = $even) {
+  Item {{idx}}  -  {{ item.name }}
+}
+```
+
+Old syntax: `<div *ngFor="item of items"></div>`
+
+---
+
+## @for - empty block
+
+- An optional `@empty` block can be used after the `@for` block
+- The empty-block is displayed if there are no items available inside the array
+
+Example:
+
+```html
+@for (item of items; track item.name) {
+  <li> {{ item.name }} </li>
+} @empty {
+  <li> There are no items. </li>
+}
+```
+
+---
+
+## @switch
+
+- Can be used like a regular switch statement
+  - No fallthrough
+- `@default` is optional - if there is no match, nothing will be displayed
+
+Example:
+
+```html
+@switch (condition) {
+  @case (caseA) {
+    Case A.
+  }
+  @case (caseB) {
+    Case B.
+  }
+  @default {
+    Default case.
+  }
+}
+```
+
+Old syntax: `<div [ngSwitch]="condition"><p *ngSwitchCase="caseA"></p></div>`
+
+
+
+
+
+
+
+
+---
+layout: cover
 ---
 
 # Lifecycle
 
-TODO
-
---- 
-
-# Pipes
+---
 
 TODO
 
 ---
+layout: cover
+---
+
+# Pipes
+
+---
+
+## About pipes
+
+- Used to transform values like strings, dates, currency amounts,
+
+
+---
+layout: cover
+---
 
 # Component Architecture
+
+---
 
 TODO

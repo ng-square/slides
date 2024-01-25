@@ -16,6 +16,7 @@
   - [] lifecyle
   - [] pipes
   - [] architecure / nested
+  - [] rework 
 - [] Pipes
 - [] DI / Inject-based dependency injection
 - [] module / standalone
