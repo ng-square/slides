@@ -12,11 +12,11 @@
 - Components @yannickholzenkamp
   - [X] templates
   - [X] input / output bindings
-  - [] control flows
+  - [x] control flows
   - [] lifecyle
   - [] pipes
   - [] architecure / nested
-  - [] rework 
+  - [] rework tasks
 - [] Pipes
 - [] DI / Inject-based dependency injection
 - [] module / standalone
