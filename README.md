@@ -13,11 +13,11 @@
   - [X] templates
   - [X] input / output bindings
   - [x] control flows
+  - [x] pipes
   - [] lifecyle
-  - [] pipes
   - [] architecure / nested
   - [] rework tasks
-- [] Pipes
+- [] Routing
 - [] DI / Inject-based dependency injection
 - [] module / standalone
 - [] service

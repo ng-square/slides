@@ -178,3 +178,10 @@ pre {
 strong {
   color: #d9304c !important;
 }
+
+.mermaid {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

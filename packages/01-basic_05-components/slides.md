@@ -581,7 +581,7 @@ layout: cover
 
 ---
 
-## @if 
+## `@if`
 
 - Will display content if the conditional expression is truthy
   - Element is removed from DOM when `@if` is falsy, compared to just hiding with CSS
@@ -604,7 +604,7 @@ Old syntax: `<div *ngIf="a > b"></div>`
 
 --- 
 
-## @if - reference the conditional expression's result
+## `@if` - reference the conditional expression's result
 
 - The result of the conditional expression might be assigned to a variable which can be used in the `@if` block
 
@@ -618,7 +618,7 @@ Example:
 
 ---
 
-## @for
+## `@for`
 
 - Used render content repeatedly for each item in a collection
 - `track` expression determines the key of the array items 
@@ -638,7 +638,7 @@ Old syntax: `<div *ngFor="item of items"></div>`
 
 ---
 
-## @for - empty block
+## `@for` - empty block
 
 - An optional `@empty` block can be used after the `@for` block
 - The empty-block is displayed if there are no items available inside the array
@@ -655,7 +655,7 @@ Example:
 
 ---
 
-## @switch
+## `@switch`
 
 - Can be used like a regular switch statement
   - No fallthrough
@@ -679,11 +679,107 @@ Example:
 
 Old syntax: `<div [ngSwitch]="condition"><p *ngSwitchCase="caseA"></p></div>`
 
+---
+layout: cover
+---
 
+# Pipes
 
+---
 
+## About pipes
 
+- Used to transform values like strings, dates, currency amounts, etc.
+- Simple functions that can be used in templates
+  - used with the UNIX pipe sign `|` followed by the name of the pipe
+  - accepts input value and return transformed values
+- Some pipes are already built in
+  - e.g. `DatePipe`, `UpperCasePipe`, `CurrencyPipe`, `AsyncPipe`, `JsonPipe`
+- Pipes can have params, e.g. `{{birthday | date:"MM/dd/yy"}}`
+- Custom pipes:
+  - Implement `PipeTransform` interface
+  - Annotate class with `@Pipe({name: 'name'})`
 
+---
+
+## Pipe examples
+
+```html
+{{birthday | date:'MM/dd/yy'}}
+
+<!-- easier to debug, renders object as json-->
+{{customer | json}}
+
+<!-- with multiple params -->
+{{balance | currency:'CHF':false}}
+
+<!-- Chaining, from left to the right -->
+{{title | lowercase | uppercase}}
+
+<!-- custom pipe -->
+{{invoice.nr | invoiceNr}}
+
+<!-- Automatic subscribe and unsubscribe to observable -->
+{{products | async}}
+```
+---
+
+## Custom pipe
+
+TypeScript class:
+
+```ts
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({name: 'magic'})
+export class MagicPipe implements PipeTransform {
+    transform(input: string): string {
+        return 'magic ' + input;
+    }
+}
+```
+
+Usage in template:
+
+```html
+{{'unicorn' | magic}}
+```
+
+---
+layout: image
+image: task.svg
+class: task-full
+hideInToc: true
+---
+
+# Task B5.7 - Pipe
+
+- Create a custom `phonenumber` pipe
+- It should format the phone number as follows:
+  - Default: `012 345 67 89`
+  - With country code param 41: `+41 12 345 67 89` 
+
+--- 
+
+## Example solution: Task B5.7 - Pipe
+
+```ts
+import {Pipe, PipeTransform} from '@angular/core';
+@Pipe({name: 'phonenumber'})
+export class PhoneNumberPipe implements PipeTransform {
+  transform(phone: string, countryCode: string): string {
+    let pts = phone.match(/^(\d{3})(\d{3})(\d{2})(\d{2})$/);
+    if (!pts) return phone;
+    let format = `${pts[1]} ${pts[2]} ${pts[3]} ${pts[4]}`;
+
+    if (countryCode) {
+      format = `+${countryCode} ${format.substring(1)}`;
+    }
+
+    return format;
+  }
+}
+```
 
 
 ---
@@ -695,19 +791,6 @@ layout: cover
 ---
 
 TODO
-
----
-layout: cover
----
-
-# Pipes
-
----
-
-## About pipes
-
-- Used to transform values like strings, dates, currency amounts,
-
 
 ---
 layout: cover
