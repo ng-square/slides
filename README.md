@@ -14,7 +14,7 @@
   - [X] input / output bindings
   - [x] control flows
   - [x] pipes
-  - [] lifecyle
+  - [x] lifecyle
   - [] architecure / nested
   - [] rework tasks
 - [] Routing

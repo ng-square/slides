@@ -781,16 +781,35 @@ export class PhoneNumberPipe implements PipeTransform {
 }
 ```
 
-
 ---
 layout: cover
 ---
 
-# Lifecycle
+# Component Lifecycle
 
 ---
 
-TODO
+## About component lifecycle
+
+- Sequence of steps that happen between the creation and destruction of the component
+- Angular has a process for rendering and checking components
+  - The lifecycle steps represent the different process steps
+- The component may implement lifecycle hooks during these steps
+
+---
+
+## Lifecycle overview (excerpt)
+
+| Phase             | Method          | When it's executed                                          |
+|---                |---              |---                                                          |
+| Creation          | constructor     | Instantiation of the component                              | 
+| Change Detection  | ngOnInit        | After all inputs of the components were initialized         | 
+| Change Detection  | ngOnChanges     | Every time the component's inputs have changed              | 
+| Change Detection  | ngAfterViewInit | Once after the component's view was initialized             |   
+| Rendering         | afterRender     | Every time all components have been rendered to the DOM     | 
+| Destruction       | ngOnDestroy     | Before the component is destroyed                           | 
+
+For all lifecycle events, see [Angular docs](https://angular.dev/guide/components/lifecycle#summary)
 
 ---
 layout: cover
