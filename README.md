@@ -2,29 +2,29 @@
 
 ## Basic Topics (Small Apps)
 
-- [] Intro @hirsch88
+- [ ] 00 - Intro
  - speackers
-- [x] Basic Angular What is that
-- [x] TypeScript & JS
-- [X] Setup Node.js & NX & Angular @hirsch88
+- [x] 01 - Basic Angular What is that
+- [x] 02 - TypeScript & JS
+- [X] 03 - Setup Node.js & NX & Angular @hirsch88
   - file structure
-- [X] Design System @hirsch88
-- Components @yannickholzenkamp
+- [X] 04 - Design System @hirsch88
+- [ ] 05 - Components @yannickholzenkamp
   - [X] templates
   - [X] input / output bindings
   - [x] control flows
   - [x] pipes
   - [x] lifecyle
-  - [] architecure / nested
-  - [] rework tasks
-- [] Routing
-- [] DI / Inject-based dependency injection
-- [] module / standalone
-- [] service
-- [] observables / signals
-- [] Change Detection Light
- - careful use function and getters 
-- [] Ajax Requests
+  - [ ] architecure / nested
+  - [ ] rework tasks
+- [ ] 06 - Routing
+- [ ] 07 - DI / Inject-based dependency injection
+- [ ] 08 - module / standalone
+- [ ] 09 - service
+- [ ] 10 - Change Detection Light @hirsch88 (careful use function and getters )
+- [ ] 11 - signals  @hirsch88
+- [ ] 12 - observables / signals  @hirsch88
+- [ ] 13 - Ajax Requests
 
 ## Intermediate
 
