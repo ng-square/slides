@@ -23,7 +23,7 @@
 - [ ] 09 - service
 - [ ] 10 - Change Detection Light @hirsch88 (careful use function and getters )
 - [ ] 11 - signals  @hirsch88
-- [ ] 12 - observables / signals  @hirsch88
+- [ ] 12 - observables @hirsch88
 - [ ] 13 - Ajax Requests
 
 ## Intermediate
