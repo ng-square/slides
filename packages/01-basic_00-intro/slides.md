@@ -1,7 +1,7 @@
 ```yaml
 title: Angular Basics - ngSquare
 theme: default
-highlighter: shikiji
+highlighter: shiki
 transition: slide-left
 lineNumbers: false
 info: false

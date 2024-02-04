@@ -1,7 +1,7 @@
 ```yaml
 title: Setup - ngSquare
 theme: default
-highlighter: shikiji
+highlighter: shiki
 transition: slide-left
 lineNumbers: false
 info: false
@@ -296,7 +296,7 @@ npm i <dependency> -D -E
 
 ```json
 "dependencies": {
-  "@my/dependency": "^0.46.1",
+  "@my/dependency": "latest",
 },
 "devDependencies": {
   ...

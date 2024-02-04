@@ -9,7 +9,7 @@
     "@nx/jest": "17.2.8",
     "@nx/js": "17.2.8",
     "@nx/plugin": "^17.2.8",
-    "@slidev/cli": "^0.46.1",
+    "@slidev/cli": "latest",
     "@slidev/theme-default": "latest",
     "@slidev/theme-seriph": "latest",
     "@swc-node/register": "~1.6.7",
