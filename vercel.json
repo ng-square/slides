@@ -5,6 +5,10 @@
       "destination": "/00-cheat-sheet/index.html"
     },
     {
+      "source": "/01-basic-10-change-detection/(.*)",
+      "destination": "/01-basic-10-change-detection/index.html"
+    },
+    {
       "source": "/01-basic_00-intro/(.*)",
       "destination": "/01-basic_00-intro/index.html"
     },
