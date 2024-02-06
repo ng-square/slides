@@ -33,6 +33,10 @@
       "destination": "/01-basic_05-components/index.html"
     },
     {
+      "source": "/01-basic_11-observables/(.*)",
+      "destination": "/01-basic_11-observables/index.html"
+    },
+    {
       "source": "/03-advanced_02-change-detection/(.*)",
       "destination": "/03-advanced_02-change-detection/index.html"
     }

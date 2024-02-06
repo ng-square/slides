@@ -1,9 +1,9 @@
 {
-  "name": "03-advanced_02-change-detection",
+  "name": "01-basic_11-observables",
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "slidev build --out ../../public/03-advanced_02-change-detection --base /03-advanced_02-change-detection/",
+    "build": "slidev build --out ../../public/01-basic_11-observables --base /01-basic_11-observables/",
     "dev": "slidev --open",
     "export": "slidev export"
   },
