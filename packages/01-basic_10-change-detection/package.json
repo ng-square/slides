@@ -1,9 +1,9 @@
 {
-  "name": "01-basic-10-change-detection",
+  "name": "01-basic_10-change-detection",
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "slidev build --out ../../public/01-basic-10-change-detection --base /01-basic-10-change-detection/",
+    "build": "slidev build --out ../../public/01-basic_10-change-detection --base /01-basic_10-change-detection/",
     "dev": "slidev --open",
     "export": "slidev export"
   },
