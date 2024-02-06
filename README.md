@@ -21,9 +21,9 @@
 - [ ] 07 - DI / Inject-based dependency injection
 - [ ] 08 - module / standalone
 - [ ] 09 - service
-- [ ] 10 - Change Detection Light @hirsch88 (careful use function and getters )
-- [ ] 11 - signals  @hirsch88
-- [ ] 12 - observables @hirsch88
+- [x] 10 - Change Detection Light @hirsch88 (careful use function and getters )
+- [ ] 11 - observables @hirsch88
+- [ ] 12 - signals  @hirsch88
 - [ ] 13 - Ajax Requests
 
 ## Intermediate
