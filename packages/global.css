@@ -76,6 +76,8 @@ h1 > code:after {
 }
 
 h1 > code,
+h2 > code,
+li > code,
 p code {
   color: #b8b2ff;
   background-color: var(--prism-background);
@@ -85,7 +87,9 @@ p code {
   border-radius: 8px;
 }
 
-h1 > code {
+h1 > code,
+h2 > code,
+li > code {
   -webkit-text-fill-color: #b8b2ff;
 }
 
@@ -160,15 +164,23 @@ h2 {
   grid-template-rows: auto 1fr !important;
 }
 
-.two-cols-header > .col-header {
+/* .two-cols-header > .col-header {
   padding-bottom: 30px !important;
-}
+} */
 
 .two-cols-header > .col-left,
 .two-cols-header > .col-right {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
+  /* display: flex !important; */
+  /* justify-content: center !important; */
+  /* align-items: center !important; */
+}
+
+.two-cols-header > .col-left {
+  padding-right: 1rem;
+}
+
+.two-cols-header > .col-right {
+  padding-left: 1rem;
 }
 
 pre {
