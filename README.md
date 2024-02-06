@@ -19,10 +19,11 @@
   - [ ] rework tasks
   - [ ] ( careful use function and getters )
   - [ ] ( use trackBy )
+  - [ ] ( standalone )
 - [ ] 06 - Routing
-- [ ] 07 - DI / Inject-based dependency injection
-- [ ] 08 - module / standalone
-- [ ] 09 - service
+- [x] 07 - DI / Inject-based dependency injection @hirsch88 
+- [x] 07 - service @hirsch88 
+- [ ] 08 - module / standalone 
 - [x] 10 - Change Detection Light @hirsch88 
 - [ ] 11 - observables @hirsch88
 - [ ] 12 - signals  @hirsch88

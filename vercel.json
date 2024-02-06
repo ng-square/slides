@@ -29,6 +29,10 @@
       "destination": "/01-basic_05-components/index.html"
     },
     {
+      "source": "/01-basic_07-injection/(.*)",
+      "destination": "/01-basic_07-injection/index.html"
+    },
+    {
       "source": "/01-basic_10-change-detection/(.*)",
       "destination": "/01-basic_10-change-detection/index.html"
     },
