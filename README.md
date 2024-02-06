@@ -17,11 +17,13 @@
   - [x] lifecyle
   - [ ] architecure / nested
   - [ ] rework tasks
+  - [ ] ( careful use function and getters )
+  - [ ] ( use trackBy )
 - [ ] 06 - Routing
 - [ ] 07 - DI / Inject-based dependency injection
 - [ ] 08 - module / standalone
 - [ ] 09 - service
-- [x] 10 - Change Detection Light @hirsch88 (careful use function and getters )
+- [x] 10 - Change Detection Light @hirsch88 
 - [ ] 11 - observables @hirsch88
 - [ ] 12 - signals  @hirsch88
 - [ ] 13 - Ajax Requests
