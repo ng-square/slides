@@ -1,0 +1,18 @@
+{
+  "name": "01-basic_12-signals",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "slidev build --out ../../public/01-basic_12-signals --base /01-basic_12-signals/",
+    "dev": "slidev --open",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "latest",
+    "@slidev/theme-default": "latest",
+    "@slidev/theme-seriph": "latest"
+  },
+  "devDependencies": {
+    "@iconify-json/uim": "^1.1.9"
+  }
+}
