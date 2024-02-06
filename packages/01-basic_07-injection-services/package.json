@@ -1,9 +1,9 @@
 {
-  "name": "01-basic_07-injection",
+  "name": "01-basic_07-injection-services",
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "slidev build --out ../../public/01-basic_07-injection --base /01-basic_07-injection/",
+    "build": "slidev build --out ../../public/01-basic_07-injection-services --base /01-basic_07-injection-services/",
     "dev": "slidev --open",
     "export": "slidev export"
   },
