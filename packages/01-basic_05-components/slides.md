@@ -605,6 +605,106 @@ layout: cover
 # Pipes
 
 ---
+
+## Intro
+
+- Transform displayed values
+- Built-in and custom types
+- Used in template expressions
+- Enhance readability
+
+---
+
+## Built-in pipes
+
+Examples:
+
+| Pipe          | Description              | Example                  |
+|---------------|--------------------------|-------------------------------|
+| `date`        | Formats a date           | ` today \| date:'short'` |
+| `uppercase`   | Converts text to uppercase| ` 'hello' \| uppercase`  |
+| `lowercase`   | Converts text to lowercase| ` 'HELLO' \| lowercase`  |
+| `currency`    | Formats number as currency| ` 123.45 \| currency:'USD'` |
+| `decimal`     | Formats a number         | `123.456789 \| number:'1.2-2'` |
+
+There are more :)
+
+---
+layout: two-cols-header
+---
+
+## Custom pipes
+
+::left::
+
+- Transform data in templates
+- Decorator: `@Pipe` defines a pipe
+- Implement: `PipeTransform` interface
+- Method: `transform` processes data
+- Usage: Similar to built-in pipes
+
+::right::
+
+Example:
+
+```typescript
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({ name: 'exclaim' })
+export class ExclaimPipe implements PipeTransform {
+  transform(value: string): string {
+    return value + '!';
+  }
+}
+```
+
+```html
+<p>{{ 'Hello' | exclaim }}</p>
+```
+
+---
+layout: two-cols-header
+---
+
+## Async and JSON pipe
+
+::left::
+
+- Async Pipe: Manages observable subscriptions
+  - Auto-unsubscribes to prevent memory leaks
+- JSON Pipe: Formats objects to JSON string
+  - Useful for debugging or displaying JSON.
+
+::right::
+
+Example: 
+
+```html
+<!-- Async Pipe -->
+<some-component [users]="users$ | async"></some-component>
+
+<!-- JSON Pipe -->
+<pre>{{ someComplexObject | json }}</pre>
+```
+
+---
+layout: two-cols-header
+---
+
+## Best practices
+
+- Use **pure pipes** for performance: Avoids recalculating for unchanged data
+  - Pure pipes will only execute the transformation if it detects a change
+  - For primitives: the value has to change, for objects: the reference has to change
+- Keep transformations **lightweight** to maintain UI responsiveness
+- Implement custom pipes for reusable logic
+- Pipes should be **stateless** and free of side effects
+- Combine pipes for complex transformations (**chaining**)
+- Use the **async** pipe for observable data
+- **Test** custom pipes thoroughly
+
+
+---
 layout: cover
 ---
 
