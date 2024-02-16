@@ -260,10 +260,274 @@ layout: cover
 # Input and Output Bindings
 
 ---
+
+## Intro
+
+- Facilitates component communication
+- Input: Pass data to child
+- Output: Emit events to parent
+- Use @Input() and @Output() decorators
+
+--- 
+
+## Bindings Overview
+
+| Direction                   | Syntax                                              | Name                           |
+|---                          |---                                                  |---                             |
+| One-way, Component to View  | `[property] = "expression"`                         | Property, Attribute, Style,... | 
+| One-way, View to Component  | `(event) = "statement()"`                           | Event                          | 
+| Two-way                     | `[(property)] = "expression"`                       | Two-way                        | 
+
+---
+
+## Input Binding
+
+- Pass data parent to child
+- Decorator `@Input()` marks property
+- Facilitates parent to child communication
+- Usage in parent's template
+
+Example:
+
+```html
+<app-child [childProperty]="parentValue"></app-child>
+```
+
+```html
+<a [href]="url">Click me</a>
+```
+
+```html
+<button [disabled]="bool">Click me</button>
+```
+
+---
+
+## Output Binding
+
+- Emit events from child to parent
+- Decorator `@Output()` with EventEmitter
+- Facilitates child to parent communication
+- Usage: In child's template or class
+
+Example:
+
+```html
+<!-- child component -->
+<button (click)="sendEvent()">Send to Parent</button>
+```
+
+```typescript
+// child component
+@Output() childEvent = new EventEmitter<string>();
+sendEvent() {
+  this.childEvent.emit('Message from Child');
+}
+```
+
+```html
+<!-- parent component -->
+<app-child (childEvent)="handleChildEvent($event)"></app-child>
+```
+
+---
+
+## Event object
+
+- Represents event data
+- Passed automatically in event bindings
+- Accessible in template expressions
+- Commonly used in DOM events
+  - If it's a native event, `$event` is a DOM event object with properties like `target.value`
+- Have a type. E.g. `KeyboardEvent`, `MouseEvent` or custom events
+
+Example:
+
+```html
+<button (click)="onClick($event)">Click Me</button>
+```
+
+```typescript 
+onClick(event: MouseEvent) {
+  console.log('Button clicked', event);
+}
+```
+
+---
+
+## Two-way binding
+
+- Synchronizes model and view
+- Uses [(ngModel)] for binding
+- Requires FormsModule import
+- Simplifies form handling
+
+```html
+<input [(ngModel)]="user.name" placeholder="Enter name">
+```
+
+```typescript
+user = { name: '' };
+```
+
+---
+
+## Class binding
+
+- Dynamically add/remove CSS classes
+- Uses [class.className] or [ngClass]
+- Evaluated as true/false expressions
+- Enhances conditional styling
+
+
+Example for a single class:
+
+```html
+<div [class.active]="user.isOnline"></div>
+```
+
+Example for multiple classes:
+
+```html
+<div [ngClass]="{
+  'active': user.isOnline,
+  'inactive': !user.isOnline}">
+</div>
+```
+
+---
+
+## Style binding
+
+- Dynamically sets inline styles
+- Syntax: [style.styleProperty]="expression"
+- Supports conditionals for dynamic styling
+- Directly applies styles to elements
+- <strong>usage not recommended!</strong>
+
+Exmple:
+
+```html
+<span [style.font-weight]="user.isOnline ? 'bold' : 'normal'">
+</span>
+```
+
+---
 layout: cover
 ---
 
 # Control Flow
+
+---
+
+## About control flows
+
+- Used to show, hide and repeat elements
+- Three elements: `@if`, `@for` and `@switch`
+- Available since Angular 17
+- Alternative: Strctural directives
+  - `*ngIf`, `*ngFor`, `*ngSwitch`
+
+---
+
+## `@if`
+
+- Will display content if the conditional expression is truthy
+  - Element is removed from DOM when `@if` is falsy, compared to just hiding with CSS
+- Can be associated with one or more `@else` blocks
+- Directly after the if block there can be one or more `@else if` blocks
+
+Example: 
+
+```html
+@if (a > b) {
+  {{a}} is greater than {{b}}
+} @else if (b > a) {
+  {{a}} is less than {{b}}
+} @else {
+  {{a}} is equal to {{b}}
+}
+```
+
+Old syntax: `<div *ngIf="a > b"></div>`
+
+--- 
+
+## `@if` - reference the conditional expression's result
+
+- The result of the conditional expression might be assigned to a variable which can be used in the `@if` block
+
+Example:
+
+```html
+@if (users$ | async; as users) {
+  {{ users.length }}
+}
+```
+
+---
+
+## `@for`
+
+- Used render content repeatedly for each item in a collection
+- `track` expression determines the key of the array items 
+  - Used to reduce DOM operations
+- Inside the `@for` there are iteration variables available
+  - `$count`, `$index`, `$first`, `$last`, `$even`, `$odd`
+
+Example:
+
+```html
+@for (item of items; track item.id; let idx = $index, e = $even) {
+  Item {{idx}}  -  {{ item.name }}
+}
+```
+
+Old syntax: `<div *ngFor="item of items"></div>`
+
+---
+
+## `@for` - empty block
+
+- An optional `@empty` block can be used after the `@for` block
+- The empty-block is displayed if there are no items available inside the array
+
+Example:
+
+```html
+@for (item of items; track item.name) {
+  <li> {{ item.name }} </li>
+} @empty {
+  <li> There are no items. </li>
+}
+```
+
+---
+
+## `@switch`
+
+- Can be used like a regular switch statement
+  - No fallthrough
+- `@default` is optional - if there is no match, nothing will be displayed
+
+Example:
+
+```html
+@switch (condition) {
+  @case (caseA) {
+    Case A.
+  }
+  @case (caseB) {
+    Case B.
+  }
+  @default {
+    Default case.
+  }
+}
+```
+
+Old syntax: `<div [ngSwitch]="condition"><p *ngSwitchCase="caseA"></p></div>`
+
 
 ---
 layout: cover
