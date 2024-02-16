@@ -28,6 +28,7 @@
 - [ ] 11 - observables @hirsch88
 - [ ] 12 - signals  @hirsch88
 - [ ] 13 - Ajax Requests
+- [ ] 14 - Debugging
 
 ## Intermediate
 
