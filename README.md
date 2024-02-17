@@ -9,17 +9,17 @@
 - [X] 03 - Setup Node.js & NX & Angular @hirsch88
   - file structure
 - [X] 04 - Design System @hirsch88
-- [ ] 05 - Components @yannickholzenkamp
+- [x] 05 - Components @yannickholzenkamp
   - [X] templates
   - [X] input / output bindings
   - [x] control flows
   - [x] pipes
   - [x] lifecyle
-  - [ ] architecure / nested
-  - [ ] rework tasks
-  - [ ] ( careful use function and getters )
-  - [ ] ( use trackBy )
-  - [ ] ( standalone )
+  - [x] architecure / nested
+  - [x] rework tasks
+  - [x] ( careful use function and getters )
+  - [x] ( use trackBy )
+  - [x] ( standalone )
 - [ ] 06 - Routing
 - [x] 07 - DI / Inject-based dependency injection @hirsch88 
 - [x] 07 - service @hirsch88 
