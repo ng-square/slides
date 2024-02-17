@@ -142,12 +142,8 @@ layout: cover
 # Templates
 
 ---
-layout: two-cols-header
----
 
 ## Interpolation
-
-::left::
 
 - Simple Expression Evaluation
   - Renders data in the template
@@ -155,8 +151,6 @@ layout: two-cols-header
 - Bind component class properties to the view
 - Displaying dynamic text, properties
 - Automatically escapes HTML and script tags
-
-::right::
 
 Example:
 ```typescript
@@ -170,20 +164,14 @@ name = 'Roger';
 ```
 
 ---
-layout: two-cols-header
----
 
 ## Template Expressions
-
-::left::
 
 - Used within the template, evaluate to a value
 - Support most JavaScript expressions
   - Restrictions: pure functions, no side-effects
   - e.g. no assignments, no new, no chaining of expressions, no increment operator
 - Angular sanitizes bindings to prevent XSS
-
-::right::
 
 Example:
 
@@ -200,18 +188,12 @@ calculateTotal() {
 ```
 
 ---
-layout: two-cols-header
----
 
 ## Template Statements
-
-::left::
 
 - Execute actions, respond to user input or events
 - Used inside event binding `()`
 - Common use cases: Handling clicks, form submissions
-
-::right::
 
 Example:
 
@@ -228,19 +210,13 @@ handleClick() {
 ```
 
 ---
-layout: two-cols-header
----
 
 ## Template reference variables
-
-::left::
 
 - Reference DOM elements in templates
 - Defined with a hash symbol `#`
 - Accessible within the template
 - Use cases: Interact with elements directly, pass to methods
-
-::right::
 
 Example:
 
@@ -258,25 +234,20 @@ logInput(value: string) {
 ```
 
 ---
-layout: two-cols-header
----
 
 ## Safe navigation operator
-
-::left::
 
 - Prevents access of undefined objects: Safely navigates object properties
 - Syntax: `?.` for property or method access
 - Use case: When unsure if a variable is null/undefined
-
-::right::
 
 Example:
 
 ```typescript
 // ts
 user = {
-  name: 'Roger Federer' // Note: 'user' could be null or undefined at runtime.
+  // Note: 'user' could be null or undefined at runtime.
+  name: 'Roger' 
 };
 ```
 
@@ -311,19 +282,13 @@ layout: cover
 | Two-way                     | `[(property)] = "expression"`                       | Two-way                        | 
 
 ---
-layout: two-cols-header
----
 
 ## Input Binding
-
-::left::
 
 - Pass data parent to child
 - Decorator `@Input()` marks property
 - Facilitates parent to child communication
 - Usage in parent's template
-
-::right::
 
 Example:
 
@@ -340,19 +305,13 @@ Example:
 ```
 
 ---
-layout: two-cols-header
----
 
 ## Output Binding
-
-::left::
 
 - Emit events from child to parent
 - Decorator `@Output()` with EventEmitter
 - Facilitates child to parent communication
 - Usage: In child's template or class
-
-::right::
 
 Example:
 
@@ -375,12 +334,8 @@ sendEvent() {
 ```
 
 ---
-layout: two-cols-header
----
 
 ## Event object
-
-::left::
 
 - Represents event data
 - Passed automatically in event bindings
@@ -388,8 +343,6 @@ layout: two-cols-header
 - Commonly used in DOM events
   - If it's a native event, `$event` is a DOM event object with properties like `target.value`
 - Have a type. E.g. `KeyboardEvent`, `MouseEvent` or custom events
-
-::right::
 
 Example:
 
@@ -404,19 +357,13 @@ onClick(event: MouseEvent) {
 ```
 
 ---
-layout: two-cols-header
----
 
 ## Two-way binding
-
-::left::
 
 - Synchronizes model and view
 - Uses [(ngModel)] for binding
 - Requires FormsModule import
 - Simplifies form handling
-
-::right::
 
 Example:
 
@@ -429,19 +376,13 @@ user = { name: '' };
 ```
 
 ---
-layout: two-cols-header
----
 
 ## Class binding
-
-::left::
 
 - Dynamically add/remove CSS classes
 - Uses [class.className] or [ngClass]
 - Evaluated as true/false expressions
 - Enhances conditional styling
-
-::right::
 
 Example for a single class:
 
@@ -459,20 +400,14 @@ Example for multiple classes:
 ```
 
 ---
-layout: two-cols-header
----
 
 ## Style binding
-
-::left::
 
 - Dynamically sets inline styles
 - Syntax: [style.styleProperty]="expression"
 - Supports conditionals for dynamic styling
 - Directly applies styles to elements
 - <strong>usage not recommended!</strong>
-
-::right::
 
 Exmple:
 
@@ -663,19 +598,13 @@ export class ExclaimPipe implements PipeTransform {
 ```
 
 ---
-layout: two-cols-header
----
 
 ## Async and JSON pipe
-
-::left::
 
 - Async Pipe: Manages observable subscriptions
   - Auto-unsubscribes to prevent memory leaks
 - JSON Pipe: Formats objects to JSON string
   - Useful for debugging or displaying JSON.
-
-::right::
 
 Example: 
 
