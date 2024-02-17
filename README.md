@@ -20,7 +20,7 @@
   - [x] ( careful use function and getters )
   - [x] ( use trackBy )
   - [x] ( standalone )
-- [ ] 06 - Routing
+- [ ] 06 - Routing @yannickholzenkamp
 - [x] 07 - DI / Inject-based dependency injection @hirsch88 
 - [x] 07 - service @hirsch88 
 - [ ] 08 - module / standalone 
@@ -28,7 +28,7 @@
 - [ ] 11 - observables @hirsch88
 - [ ] 12 - signals  @hirsch88
 - [ ] 13 - Ajax Requests
-- [ ] 14 - Debugging
+- [ ] 14 - Debugging @yannickholzenkamp
 
 ## Intermediate
 
