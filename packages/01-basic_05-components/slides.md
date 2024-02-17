@@ -257,6 +257,54 @@ user = {
 ```
 
 ---
+layout: image
+image: task.svg
+class: task-full
+hideInToc: true
+---
+
+# Task B5.A - Component
+
+- Create a new Angular component named `TennisPlayer`
+- In the component, define an object `player` with the following properties:
+  - `firstName` (string)
+  - `lastName` (string)
+  - `ranking` (number)
+  - Initialize it with the details of a tennis player
+- Use interpolation in the component's template to display the player's full name and their ranking
+- Use the safe navigation operator to safely access the object's properties
+- Ensure the `TennisPlayer` component is displayed within the application's main component template
+- Use paragraphs (`<p></p>`) to display the data
+
+--- 
+hideInToc: true
+---
+
+# Task B5.A - Example solution
+
+```typescript
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-tennis-player',
+  templateUrl: './tennis-player.component.html',
+})
+export class TennisPlayerComponent {
+  player = {
+    firstName: 'Jannik',
+    lastName: 'Sinner',
+    ranking: 4
+  };
+}
+```
+
+```html
+<h2>Tennis Player Profile</h2>
+<p>Name: {{ player?.firstName }} {{ player?.lastName }}</p>
+<p>Ranking: {{ player?.ranking }}</p>
+```
+
+---
 layout: cover
 ---
 
@@ -534,6 +582,82 @@ Old syntax: `<div [ngSwitch]="condition"><p *ngSwitchCase="caseA"></p></div>`
 
 
 ---
+layout: image
+image: task.svg
+class: task-full
+hideInToc: true
+---
+
+# Task B5.B - Bindings and control flow
+
+- Create Two Angular Components `TennisTournament` and `TennisMatch`
+- In `TennisTournament`
+  - Define an array `matches` containing objects with properties `p1` and `p2` as strings
+  - Use `@for` to display all matches using the `TennisMatch` component
+- In `TennisMatch`
+  - Use `@Input()` to accept a match object
+  - Use `@Output()` to emit a `selected` event when a player of a match is clicked
+- Handle the selection event in the `TennisTournament` component and show an `alert` for each win
+
+
+--- 
+hideInToc: true
+layout: two-cols-header
+---
+
+# Task B5.B - Example solution
+
+::left::
+
+Parent component:
+
+```typescript
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-tennis-tournament',
+  template: `@for (match of matches; track match.id) {
+                <app-tennis-match 
+                [match]="match" 
+                (select)="onSelect($event)">
+                </app-tennis-match>
+             }`,
+})
+export class TennisTournamentComponent {
+  matches = [
+    { id: 1, p1: 'Sinner', p2: 'Medwedew' },
+    { id: 2, p1: 'Djokovic', p2: ' Alcaraz' }
+  ];
+
+  onSelect(winner: string) { alert(winner); }
+}
+```
+
+::right::
+
+Child component:
+
+```typescript
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+
+@Component({
+  selector: 'app-tennis-match',
+  template: `<span (click)="select.emit(match.p1)">
+              {{ match.p1 }}
+            </span> 
+            vs.
+            <span (click)="select.emit(match.p2)">
+              {{ match.p2 }}
+            </span> 
+            </div>`
+})
+export class TennisMatchComponent {
+  @Input() match: any;
+  @Output() select = new EventEmitter<string>();
+}
+```
+
+---
 layout: cover
 ---
 
@@ -633,11 +757,125 @@ layout: two-cols-header
 - **Test** custom pipes thoroughly
 
 
+
+
+---
+layout: image
+image: task.svg
+class: task-full
+hideInToc: true
+---
+
+# Task B5.C - Pipes
+
+- Create a custom pipe named `reverseString`
+- It should reverse the characters of a string
+- Use the custom pipe in a component of your choice
+
+
+--- 
+hideInToc: true
+layout: two-cols-header
+---
+
+# Task B5.C - Example solution
+
+::left::
+
+Pipe: 
+
+```typescript
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'reverseString'
+})
+export class ReverseStringPipe implements PipeTransform {
+  transform(value: string): string {
+    return value.split('').reverse().join('');
+  }
+}
+```
+
+::right::
+
+Usage:
+
+```typescript
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-reverse-message',
+  template: '<p>{{ message | reverseString }}</p>',
+})
+export class ReverseMessageComponent {
+  message = 'Angular is awesome';
+}
+```
+
 ---
 layout: cover
 ---
 
 # Lifecycle
+
+---
+
+## Intro
+
+- Sequence of steps that happen between the creation and destruction of the component
+- Angular has a process for rendering and checking components
+  - The lifecycle steps represent the different process steps
+- The component may implement lifecycle hooks during these steps
+
+---
+
+## Overview
+
+| Phase        | Method       | Description                                 |
+|--------------|--------------|---------------------------------------------|
+| Initialization | `ngOnInit`    | Initializes component data after construction |
+| Change Detection | `ngOnChanges` | Responds to changes in input properties     |
+| View Initialization | `ngAfterViewInit` | Initializes component's views and child views |
+| Content Projection | `ngAfterContentInit` | After projecting content into the component  |
+| Destruction  | `ngOnDestroy` | Cleanup just before Angular destroys the component |
+
+For all lifecycle events, see [Angular docs](https://angular.dev/guide/components/lifecycle#summary)
+
+---
+
+## ngOnInit
+
+- Initializes component data
+- Called after the constructor, before the first `ngOnChanges`
+- Use cases: e.g. fetch data, set up initial state
+
+Example:
+
+```typescript
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-example',
+  template: `<p>{{message}}</p>`
+})
+export class ExampleComponent implements OnInit {
+  message: string;
+
+  ngOnInit() {
+    this.message = 'Hello, World!';
+  }
+}
+```
+
+---
+
+## Best practices
+
+- Initialize data in `ngOnInit`, not the constructor
+- Use `ngOnDestroy` for cleanup activities (e.g. unsubscribe from observables)
+- Use `ngOnChanges` for responding to input property changes effectively
+- **Minimize logic in lifecycle hooks to improve performance**
 
 ---
 layout: cover
@@ -646,13 +884,90 @@ layout: cover
 # Architecture
 
 ---
+
+## Component Composition
+
+- Build UIs as a tree of components
+  - Parent-child components share data via @Input/@Output
+  - Nest components to create complex UI structures
+- Encapsulate features in standalone components
+  - Reuse components to maintain consistency and reduce code
+
+---
+
+## Component Communication
+
+- Parent/Child:
+  - Use @Input to pass data down from parent to child components
+  - Use @Output and EventEmitter to send data from child to parent
+- Other situations:
+  - Share data between sibling components using a shared service
+  - Utilize Angular routing & query parameters for communication between components
+
+---
+
+## Container vs. Presentational Component
+
+- Container (Smart) Components:
+  - Manage data, logic, and state
+  - Pass data to presentational components via @Input
+  - Often interact with services
+- Presentational (Dumb) Components:
+  - Presentational components display UI and emit events
+  - Communicate with container components through @Output
+  - Focus on how things look
+
+---
 layout: cover
 ---
 
 # Best Practices
 
 ---
+
+## Best practices
+
+- Avoid using complex functions and getters in templates
+  - They're called frequently during change detection cycles, impacting performance
+  - Move logic to component properties or methods, initializing them in lifecycle hooks like ngOnInit
+- Use `trackBy` in `*ngFor` or `track` in the `@for` control flow for efficient list rendering
+- Use `OnPush` change detection strategy to improve performance
+- Keep templates simple and logic in components or services
+- Organize folders by feature for scalability and ease of navigation
+
+---
 layout: cover
 ---
 
 # Conclusion
+
+---
+layout: image-right
+image: sum-up.svg
+class: sum-up
+---
+
+## Recap
+
+- Components are the core building blocks
+- @Input and @Output for communication
+- Lifecycle hooks manage component creation, update, and destruction
+- Pipes transform values efficiently
+- Use best practices for performance
+- Clear folder structure and naming
+- Angular CLI or NX
+
+---
+
+## Resources for further reading
+
+- [Official Angular Documentation (old) on Components](https://angular.io/guide/component-overview)
+- [Official Angular Documentation (new) on Components](https://angular.dev/essentials/components#)
+- [Official Angular Documentation (old) on Components and Templates](https://angular.io/guide/architecture-components)
+
+---
+layout: cover
+hideInToc: true
+---
+
+# Questions?
