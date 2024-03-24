@@ -29,6 +29,10 @@
       "destination": "/01-basic_05-components/index.html"
     },
     {
+      "source": "/01-basic_06-routing/(.*)",
+      "destination": "/01-basic_06-routing/index.html"
+    },
+    {
       "source": "/01-basic_07-injection-services/(.*)",
       "destination": "/01-basic_07-injection-services/index.html"
     },
