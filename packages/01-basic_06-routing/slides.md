@@ -43,10 +43,212 @@ hideInToc: true
 layout: cover
 ---
 
-# Introduction to Routing
+# Introduction to Angular Routing
 
 ---
 
-## Routing
+## What is Angular Routing?
+
+- Enables navigation without page reloads
+- Core for Single Page Applications (SPAs)
+- Maps URLs to specific components/views
+- Facilitates deep linking and bookmarking
+- Enhances code modularity and organization
+
+---
+
+### How does Angular Routing work?
+
+- Maps URLs to Angular components
+- Uses RouterModule for configuration
+- Renders components based on route configurations
+
+---
+layout: cover
+---
+
+# Setting Up Angular Routing
+
+---
+
+### Install Angular Router
+
+- Install router package using Angular CLI
+- Import RouterModule in AppModule
+- Configure routes using RouterModule.forRoot() in AppModule
+
+  ```
+  ng add @angular/router
+  ```
+
+---
+layout: cover
+---
+
+# Defining Routes
+
+---
+
+### Creating Route Configurations
+
+- Define routes in AppModule or feature modules
+- Use RouterModule.forRoot() for root-level routes
+- Use RouterModule.forChild() for feature module routes
+
+---
+
+## Understanding Route Definition Objects
+
+- Define routes as object literals with properties
+  - `path`: URL path for the route
+  - `component`: Component to render for the route
+  - `redirectTo`: Redirects to a different URL
+  - `children`: Defines child routes for nesting
+  - `canActivate`: Guards route activation based on conditions
+
+---
+
+## Basic route configuration examples
+
+```typescript
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home.component';
+import { AboutComponent } from './about.component';
+import { NotFoundComponent } from './not-found.component';
+
+const routes: Routes = [
+  { path: 'home', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
+  { path: '**', component: NotFoundComponent }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+
+```
+
+---
+layout: cover
+---
+
+# Router Outlet
+
+---
+
+## What is a Router Outlet?
 
 - TODO
+
+---
+
+## Implementing Router Outlet in Angular templates
+
+- TODO
+
+---
+layout: cover
+---
+
+# Navigating between Routes
+
+---
+
+## RouterLink
+
+- TODO
+
+---
+
+## Programmatic navigation using Router service
+
+- TODO
+
+---
+
+## Relative and absolute navigation
+
+- TODO
+
+---
+layout: cover
+---
+
+# Route Parameters
+
+---
+
+## Passing parameters to routes
+
+- TODO
+
+---
+
+## Accessing route parameters in components
+
+- TODO
+
+---
+
+## Optional route parameters
+
+- TODO
+
+---
+layout: cover
+---
+
+# Route Guards
+
+---
+
+## Introduction to Route Guards
+
+- TODO
+
+---
+
+## canActivate
+
+- TODO
+
+---
+layout: cover
+---
+
+# Lazy Loading
+
+---
+
+## What is Lazy Loading?
+
+- TODO
+
+---
+
+## Lazy Loading modules using Angular Router
+
+- TODO
+
+---
+layout: image
+image: task.svg
+class: task-full
+hideInToc: true
+---
+
+# Task B6.A - Routing
+
+- TODO
+
+--- 
+hideInToc: true
+---
+
+# Task B5.C - Example solution
+
+- TODO
+
