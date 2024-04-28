@@ -20,7 +20,7 @@
   - [x] ( careful use function and getters )
   - [x] ( use trackBy )
   - [x] ( standalone )
-- [ ] 06 - Routing @yannickholzenkamp
+- [x] 06 - Routing @yannickholzenkamp
 - [x] 07 - DI / Inject-based dependency injection @hirsch88 
 - [x] 07 - service @hirsch88 
 - [ ] 08 - module / standalone 
@@ -32,7 +32,7 @@
 
 ## Intermediate
 
-- [] Routing
+- [x] Routing (done ausser task)
  - lazy loading
  - parameters from route
  - route guards
