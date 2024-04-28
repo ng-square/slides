@@ -33,12 +33,12 @@
 ## Intermediate
 
 - [x] Routing (done ausser task)
- - lazy loading
- - parameters from route
- - route guards
+  - lazy loading
+  - parameters from route
+  - route guards
 - [] Forms
- - layout
- - validation
+  - layout
+  - validation
 - [] Translations
 - [] security
 - [] baloise deployment (intern)
