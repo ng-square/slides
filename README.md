@@ -36,12 +36,12 @@
   - lazy loading
   - parameters from route
   - route guards
-- [] Forms
+- [ ] Forms
   - layout
   - validation
-- [] Translations
-- [] security
-- [] baloise deployment (intern)
+- [ ] Translations
+- [ ] security
+- [ ] baloise deployment (intern)
 
 ## Advanced Topics (Large Apps & External)
 
