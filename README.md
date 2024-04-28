@@ -3,7 +3,7 @@
 ## Basic Topics (Small Apps)
 
 - [ ] 00 - Intro
- - speackers
+ - speakers
 - [x] 01 - Basic Angular What is that
 - [x] 02 - TypeScript & JS
 - [X] 03 - Setup Node.js & NX & Angular @hirsch88
@@ -28,7 +28,7 @@
 - [ ] 11 - observables @hirsch88
 - [ ] 12 - signals  @hirsch88
 - [ ] 13 - Ajax Requests
-- [ ] 14 - Debugging @yannickholzenkamp
+- [ ] 14 - Debugging (debug, angular dev tools) @yannickholzenkamp
 
 ## Intermediate
 
