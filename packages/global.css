@@ -39,6 +39,7 @@ h5 {
   font-weight: 600;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  margin-bottom: 50px !important;
 }
 
 .cover h1,
@@ -185,6 +186,7 @@ h2 {
 
 pre {
   padding-bottom: 20px !important;
+  margin: 20px 0 !important;
 }
 
 strong {

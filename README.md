@@ -35,6 +35,7 @@
 - [] Routing
  - lazy loading
  - parameters from route
+ - route guards
 - [] Forms
  - layout
  - validation

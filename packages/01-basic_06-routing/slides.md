@@ -141,13 +141,14 @@ layout: cover
 
 ## What is a Router Outlet?
 
-- TODO
+- Placeholder in the application
+- The router renders components dynamically at this place
+  - Based on the current route / URL
 
----
 
-## Implementing Router Outlet in Angular templates
-
-- TODO
+```html
+<router-outlet></router-outlet>
+```
 
 ---
 layout: cover
@@ -157,81 +158,81 @@ layout: cover
 
 ---
 
-## RouterLink
+## Navigate using RouterLink
 
-- TODO
+```html
+<!-- links to /player/rfederer -->
+<a routerLink="/player/rfederer">Link Text</a>
+
+<!-- links to /player/rfederer?debug=true#matches -->
+<a [routerLink]="['/player/rfederer']" [queryParams]="{debug: true}" fragment="matches">Link Text</a>
+```
+
+- Angular directive used for creating navigation links in templates
+- Navigates to the corresponding route when clicked
+- Supports dynamic route parameters and query parameters for flexible navigation
+- `routerLink` defines target
+- `queryParams` allows to navigate w/ query params 
+- `fragment` allows to target a specific fragment
+- `queryParamsHandling` defines handling of existing query params (`preserve`, `merge`)
 
 ---
-
-## Programmatic navigation using Router service
-
-- TODO
-
+layout: two-cols-header
 ---
 
 ## Relative and absolute navigation
 
-- TODO
+::left:: 
+
+Relative navigation:
+- Routes are navigated relative to the current activated route
+- Used with `relativeTo` in navigation methods
+- Example:
+  - Current route: `/player/rfederer`
+  - Navigate to: `details`
+  - Target: `/player/rfederer/details`
+
+::right:: 
+
+Absolute navigation:
+- Routes are navigated based on their absolute path from the root level
+- Used with absolute paths in navigation methods (starting with `/`) 
+- Example:
+  - Current route: `/player/rfederer`
+  - Navigate to: `/player/rnadal`
+  - Target: `/player/rnadal`
+
 
 ---
-layout: cover
+layout: two-cols-header
 ---
 
-# Route Parameters
+## Navigate using Router service
 
----
+::left::
 
-## Passing parameters to routes
+- Allows for navigation within Angular components programmatically
+  - When navigation needs to be triggered based on user interactions or application logic
+- Inject the `Router` service into the component
+- `navigate`
+  - Navigate based on the provided array of commands and a starting point
+- `navigateByUrl`
+  - Navigates to a view using an absolute route path
 
-- TODO
+::right::
 
----
+```typescript
+// navigate to player page with navigateByUrl
+router.navigateByUrl("/player/rfederer")
 
-## Accessing route parameters in components
+// navigate to player page with navigate
+router.navigate(['/player', `'rfederer`]);
+// relative navigation -> /player/rfederer/details
+router.navigate(['details'], {relativeTo: route});
+// relative navigation -> /player/rnadal
+router.navigate(['../../rnadal'], {relativeTo: route});
+```
 
-- TODO
-
----
-
-## Optional route parameters
-
-- TODO
-
----
-layout: cover
----
-
-# Route Guards
-
----
-
-## Introduction to Route Guards
-
-- TODO
-
----
-
-## canActivate
-
-- TODO
-
----
-layout: cover
----
-
-# Lazy Loading
-
----
-
-## What is Lazy Loading?
-
-- TODO
-
----
-
-## Lazy Loading modules using Angular Router
-
-- TODO
 
 ---
 layout: image
@@ -242,13 +243,28 @@ hideInToc: true
 
 # Task B6.A - Routing
 
-- TODO
+- Create a component `TennisPlayer` which displays the details of a Tennis player
+  - Add content to the component as you wish
+- Create a component `TennisMatch` which displays the details of a Tennis match
+  - Add content to the component as you wish
+- In the route configuration add the two components
+  - `player` should target `TennisPlayer` component
+  - `match` should target `TennisMatch` component
+- In the `app.component` add two links (hint: `routerLink`) to navigate to these components
 
 --- 
 hideInToc: true
 ---
 
-# Task B5.C - Example solution
+# Task B5.A - Example solution
 
-- TODO
+```
+// route config
+{ path: 'player', component: TennisPlayerComponent },
+{ path: 'match', component: TennisMatchComponent }
+
+// app component
+<a routerLink="/player">Tennis player</a>
+<a routerLink="/match">Tennis match</a>
+```
 
