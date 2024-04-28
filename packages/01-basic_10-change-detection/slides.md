@@ -473,7 +473,7 @@ class: sum-up
 hideInToc: true
 ```
 
-# Sum Up
+# Summary
 
 <v-click>
 
