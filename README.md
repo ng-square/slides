@@ -25,8 +25,8 @@
 - [x] 07 - service @hirsch88 
 - [ ] 08 - module / standalone 
 - [x] 10 - Change Detection Light @hirsch88 
-- [ ] 11 - observables @hirsch88
-- [ ] 12 - signals  @hirsch88
+- [x] 11 - observables @hirsch88
+- [x] 12 - signals  @hirsch88
 - [ ] 13 - Ajax Requests
 - [ ] 14 - Debugging (debug, angular dev tools) @yannickholzenkamp
 
