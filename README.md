@@ -23,11 +23,13 @@
 - [x] 06 - Routing @yannickholzenkamp
 - [x] 07 - DI / Inject-based dependency injection @hirsch88 
 - [x] 07 - service @hirsch88 
-- [ ] 08 - module / standalone 
+- [ ] 08 - module / standalone @hirsch88
 - [x] 10 - Change Detection Light @hirsch88 
 - [x] 11 - observables @hirsch88
 - [x] 12 - signals  @hirsch88
 - [ ] 13 - Ajax Requests
+  - Get & Post
+  - Signal based
 - [ ] 14 - Debugging (debug, angular dev tools) @yannickholzenkamp
 
 ## Intermediate
