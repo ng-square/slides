@@ -49,6 +49,10 @@
       "destination": "/01-basic_12-signals/index.html"
     },
     {
+      "source": "/02-intermediate_01-routing/(.*)",
+      "destination": "/02-intermediate_01-routing/index.html"
+    },
+    {
       "source": "/03-advanced_02-change-detection/(.*)",
       "destination": "/03-advanced_02-change-detection/index.html"
     }

@@ -29,6 +29,10 @@
       "destination": "/01-basic_05-components/index.html"
     },
     {
+      "source": "/01-basic_06-routing/(.*)",
+      "destination": "/01-basic_06-routing/index.html"
+    },
+    {
       "source": "/01-basic_07-injection-services/(.*)",
       "destination": "/01-basic_07-injection-services/index.html"
     },
@@ -43,6 +47,10 @@
     {
       "source": "/01-basic_12-signals/(.*)",
       "destination": "/01-basic_12-signals/index.html"
+    },
+    {
+      "source": "/02-intermediate_01-routing/(.*)",
+      "destination": "/02-intermediate_01-routing/index.html"
     },
     {
       "source": "/03-advanced_02-change-detection/(.*)",
