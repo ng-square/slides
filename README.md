@@ -21,16 +21,20 @@
   - [x] ( use trackBy )
   - [x] ( standalone )
 - [x] 06 - Routing @yannickholzenkamp
-- [x] 07 - DI / Inject-based dependency injection @hirsch88 
+- [x] 07 - DI / Inject-based dependency injection @hirsch88
+- [ ] 07 - Injection task & example solution @hirsch88
 - [x] 07 - service @hirsch88 
 - [ ] 08 - module / standalone @hirsch88
 - [x] 10 - Change Detection Light @hirsch88 
 - [x] 11 - observables @hirsch88
+- [ ] 11 - task, example solution @hirsch88
 - [x] 12 - signals  @hirsch88
-- [ ] 13 - Ajax Requests
+- [ ] 12 - task - reuse 11 task with signals & example solution @hirsch88
+- [ ] 13 - Ajax Requests @yannickholzenkamp
   - Get & Post
   - Signal based
 - [ ] 14 - Debugging (debug, angular dev tools) @yannickholzenkamp
+- [ ] Inform participants about requirements (node, npm, proxy, ...) @yannickholzenkamp
 
 ## Intermediate
 
