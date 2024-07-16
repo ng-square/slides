@@ -33,7 +33,7 @@
 - [ ] 13 - Ajax Requests @yannickholzenkamp
   - Get & Post
   - Signal based
-- [ ] 14 - Debugging (debug, angular dev tools) @yannickholzenkamp
+- [x] 14 - Debugging (debug, angular dev tools) @yannickholzenkamp
 - [ ] Inform participants about requirements (node, npm, proxy, ...) @yannickholzenkamp
 
 ## Intermediate
