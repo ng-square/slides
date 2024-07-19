@@ -32,7 +32,7 @@
 - [ ] 12 - task - reuse 11 task with signals & example solution @hirsch88
 - [x] 13 - Ajax Requests @yannickholzenkamp
 - [x] 14 - Debugging (debug, angular dev tools) @yannickholzenkamp
-- [ ] Inform participants about requirements (node, npm, proxy, ...) @yannickholzenkamp
+- [x] Inform participants about requirements (node, npm, proxy, ...) @yannickholzenkamp
 
 ## Intermediate
 
