@@ -40,3 +40,122 @@ hideInToc: true
 <Toc maxDepth="1"></Toc>
 
 ---
+
+# HTTP(S)
+
+- Protocol for transmitting hypertext over the internet
+- Enables communication between web browsers and servers
+- Often used with RESTful APIs to perform CRUD operations on data
+- Methods:
+  - GET: Request data from server
+  - POST: Submit new data to server
+  - PUT: Update existing data on server
+  - DELETE: Remove data from server
+  - ...
+
+---
+
+# Setup in Angular
+
+- Import and inject `HttpClient` in your Angular service
+- Injection of HttpClient is configured in `app.config.ts` with `provideHttpClient()`
+
+Example: 
+
+```ts
+// config
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideHttpClient()
+  ]
+};
+
+// injection
+constructor(private httpClient: HttpClient) {}
+```
+
+
+---
+
+# Make a GET request
+
+```ts
+
+getPlayers(): Signal<Player[] | undefined> {
+  return toSignal(this.httpClient.get<Player[]>('/api/players'));
+} 
+
+```
+
+- Return type is a `Signal` of `Players`
+- Makes HTTP GET request to `/api/players` to fetch all the players; expects an array of `Player` objects
+- `toSignal` converts the observable which the HttpClient returns to a signal
+
+
+---
+
+# Make a POST request
+
+```ts
+
+postPlayer(player: Player): Signal<Player | undefined> {
+  return toSignal(this.httpClient.get<Player>('/api/players'));
+} 
+
+```
+
+- Return type is a `Signal` of `Player` 
+- Makes HTTP POST request to `/api/players` to create a new player; expects a single `Player` object
+- `toSignal` converts the observable which the HttpClient returns to a signal
+
+
+---
+
+# Handling responses
+
+- Methods of HttpClient return Observables
+- The response can be handled by subscribing to the Observable (remember to unsubscribe!) 
+
+```ts
+this.httpClient.get<Player[]>('/api/players').subscribe(
+  (data) => { /* Handle successful response */ },
+  (error) => { /* Handle error response */ }
+);
+```
+
+- RxJS operators can be used to work with the Observable
+- Observables can be converted to signals
+
+---
+layout: image
+image: task.svg
+class: task-full
+hideInToc: true
+---
+
+# Task B13.A - HTTP requests
+
+- Check what data is returned from the API
+- Create a new Angular service named `TennisPlayerService`
+- In the service, inject a `HttpClient`
+- Create a method to fetch tennis players from the API
+- Display the data in the app where it makes sense
+
+`https://ch-tennis.vercel.app/api/players`
+
+--- 
+hideInToc: true
+---
+
+# Task B5.A - Example solution
+
+```typescript
+@Injectable({
+  providedIn: 'root',
+})
+export class TennisPlayerService {
+  getPlayers(): Signal<Player[] | undefined> {
+    return toSignal(this.httpClient.get<Player[]>('https://ch-tennis.vercel.app/api/players'));
+  } 
+}
+```
