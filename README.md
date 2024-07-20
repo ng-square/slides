@@ -24,7 +24,7 @@
 - [x] 07 - DI / Inject-based dependency injection @hirsch88
 - [ ] 07 - Injection task & example solution @hirsch88
 - [x] 07 - service @hirsch88 
-- [ ] 08 - module / standalone @hirsch88
+- [x] 08 - module / standalone @hirsch88
 - [x] 10 - Change Detection Light @hirsch88 
 - [x] 11 - observables @hirsch88
 - [ ] 11 - task, example solution @hirsch88
