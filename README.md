@@ -22,7 +22,7 @@
   - [x] ( standalone )
 - [x] 06 - Routing @yannickholzenkamp
 - [x] 07 - DI / Inject-based dependency injection @hirsch88
-- [ ] 07 - Injection task & example solution @hirsch88
+- [x] 07 - Injection task & example solution @hirsch88
 - [x] 07 - service @hirsch88 
 - [x] 08 - module / standalone @hirsch88
 - [x] 10 - Change Detection Light @hirsch88 
