@@ -68,11 +68,9 @@ export class TennisService {}
 
 The next step is to make it available in the DI by providing it.
 
-```ts {5,8}
+```ts {3,6}
 @Component({
-  standalone: true,
-  selector: 'app-list',
-  template: '...',
+  ...
   providers: [TennisService],
 })
 export class TennisListComponent {
@@ -97,11 +95,9 @@ export class TennisService {}
 
 No need to provide the service anymore.
 
-```ts {7}
+```ts {5}
 @Component({
-  standalone: true,
-  selector: 'app-list',
-  template: '...',
+  ...
 })
 export class TennisListComponent {
   private http = inject(MyService);
@@ -221,3 +217,104 @@ hideInToc: true
 - Try to use the new `inject`.
 
 </v-click>
+
+---
+
+```yaml
+layout: image
+image: task.svg
+class: task-full
+hideInToc: true
+```
+
+# Task B7.A - Service
+
+- Create a component `TennisRanking` which displays a list of Tennis players
+  - Add content to the component as you wish
+  - Add the component to the route `/ranking`
+- Create a service `TennisRankingService` which has a list of tennis players
+  - A tennis player with the following properties:
+    - `firstName` (string)
+    - `lastName` (string)
+    - `ranking` (number)
+  - Return the list with a method
+
+---
+
+```yaml
+hideInToc: true
+```
+
+# Task B57.A - Example solution SERVICE
+
+```typescript
+import { Injectable } from '@angular/core';
+
+export type TennisPlayer = {
+  firstName: string;
+  lastName: string;
+  ranking: number;
+};
+
+@Injectable({
+  providedIn: 'root',
+})
+export class TennisRankingService {
+  private players: TennisPlayer[] = [
+    { firstName: 'Roger', lastName: 'Federer', ranking: 1 },
+    { firstName: 'Rafael', lastName: 'Nadal', ranking: 2 },
+    { firstName: 'Novak', lastName: 'Djokovic', ranking: 3 },
+    { firstName: 'Andy', lastName: 'Murray', ranking: 4 },
+  ];
+
+  load() {
+    return this.players;
+  }
+}
+```
+
+---
+
+```yaml
+hideInToc: true
+```
+
+# Task B57.A - Example solution COMPONENT
+
+```typescript
+import { Injectable, inject } from '@angular/core';
+import { type TennisPlayer, TennisRankingService } from './tennis-ranking.service.ts';
+
+@Component({
+  selector: 'app-tennis-ranking',
+  standalone: true,
+  templateUrl: './tennis-ranking.component.html',
+  providers: [TennisRankingService],
+})
+export class TennisRankingComponent implement OnInit {
+  ranking = inject(TennisRankingService)
+  players: TennisPlayer[] = [];
+
+  ngOnInit(): void {
+    this.players = this.tennisRankingService.load();
+  }
+}
+```
+---
+
+```yaml
+hideInToc: true
+```
+
+# Task B57.A - Example solution TEMPLATE
+
+```html
+<div>
+  <h2>Tennis Player Rankings</h2>
+  <ul>
+    <li *ngFor="let player of players">
+      {{ player.ranking }}: {{ player.firstName }} {{ player.lastName }}
+    </li>
+  </ul>
+</div>
+```
