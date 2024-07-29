@@ -199,3 +199,7 @@ strong {
   justify-content: center;
   align-items: center;
 }
+
+.scrollable {
+  overflow: auto !important;
+}

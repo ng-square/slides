@@ -27,7 +27,7 @@
 - [x] 08 - module / standalone @hirsch88
 - [x] 10 - Change Detection Light @hirsch88 
 - [x] 11 - observables @hirsch88
-- [ ] 11 - task, example solution @hirsch88
+- [x] 11 - task, example solution @hirsch88
 - [x] 12 - signals  @hirsch88
 - [ ] 12 - task - reuse 11 task with signals & example solution @hirsch88
 - [x] 13 - Ajax Requests @yannickholzenkamp

@@ -192,7 +192,7 @@ export class MyService {
 
 # `async` Pipe
 
-The AsyncPipe subscribes to an **observable or promise** and **returns the latest value** it has emitted. 
+The AsyncPipe subscribes to an **observable or promise** and **returns the latest value** it has emitted.
 
 When a **new value is emitted**, the pipe marks the component to be **checked for changes**.
 
@@ -203,7 +203,7 @@ When the **component gets destroyed**, the async pipe **unsubscribes automatical
   template: `<div>Time: {{ time | async }}</div>`,
 })
 export class AsyncObservablePipeComponent {
-  time = new Observable<string>(observer => {
+  time = new Observable<string>((observer) => {
     setInterval(() => observer.next(new Date().toString()), 1000);
   });
 }
@@ -213,35 +213,267 @@ export class AsyncObservablePipeComponent {
 
 ---
 
-# Task
+```yaml
+layout: image
+image: task.svg
+class: task-full
+hideInToc: true
+```
 
-Lets create a global store for our favorite tennis player.
+# Task B11.A
+
+Create a `tennis-player.model.ts` file the the following type.
 
 ```ts
 export type TennisPlayer = Immutable<{
-  name: string;
+  firstName: string;
+  lastName: string;
+  nationality: string;
+  grandSlamWins: number;
 }>;
 ```
 
-<br/>
+---
 
-## TennisService
+```yaml
+layout: image
+image: task.svg
+class: task-full
+hideInToc: true
+```
+
+# Task B11.B
 
 1. Create a tennis service file with the generator.
-2. Define a BehaviorSubject with the type TennisPlayer.
-3. Define a getter `player` which returns `asObservable`.
-4. Define a method `change` to set the new favorite player.
+2. Define a BehaviorSubject with the type TennisPlayer[].
+3. Define a getter `players` which returns `asObservable`.
+4. Define a method `setFavorite` to set the new favorite player.
 
 ---
 
-# Task
+```yaml
+layout: image
+image: task.svg
+class: task-full
+hideInToc: true
+```
 
-Lets create a global store for our favorite tennis player.
+# Task B11.C
 
+Set these players in the players list.
 
-## TennisService
+```json
+{
+  firstName: "Roger",
+  lastName: "Federer",
+  nationality: "Swiss",
+  grandSlamWins: 20,
+},
+{
+  firstName: "Rafael",
+  lastName: "Nadal",
+  nationality: "Spanish",
+  grandSlamWins: 22,
+},
+{
+  firstName: "Novak",
+  lastName: "Djokovic",
+  nationality: "Serbian",
+  grandSlamWins: 24,
+},
+```
 
-1. Create a tennis service file with the generator.
-2. Define a BehaviorSubject with the type TennisPlayer.
-3. Define a getter `player` which returns `asObservable`.
-4. Define a method `change` to set the new favorite player.
+---
+
+```yaml
+layout: image
+image: task.svg
+class: task-full
+hideInToc: true
+```
+
+# Task B11.D
+
+1. Create a new component for the tennis legends
+2. List the legends in a table
+3. Mark the favorite player
+4. Add a button to each player to set as a favorite
+
+---
+
+```yaml
+class: scrollable
+```
+
+# Task B11.B - Tennis Service
+
+```ts
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { TennisPlayer } from './tennis.model';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class TennisService {
+  private subject = new BehaviorSubject<TennisPlayer[]>([
+    {
+      firstName: "Roger",
+      lastName: "Federer",
+      nationality: "Swiss",
+      grandSlamWins: 20,
+    },
+    {
+      firstName: "Rafael",
+      lastName: "Nadal",
+      nationality: "Spanish",
+      grandSlamWins: 22,
+    },
+    {
+      firstName: "Novak",
+      lastName: "Djokovic",
+      nationality: "Serbian",
+      grandSlamWins: 24,
+    },
+  ]);
+
+  get players() {
+    return this.subject.asObservable();
+  }
+
+  setFavorite(player: TennisPlayer) {
+    const currentPlayers = this.subject.value;
+    const updatedPlayers = currentPlayers.map(p => ({
+      ...p,
+      favorite: p.firstName === player.firstName && p.lastName === player.lastName
+    }));
+    this.subject.next(updatedPlayers);
+  }
+}
+```
+
+---
+
+```yaml
+class: scrollable
+```
+
+# Solution B11 - Tennis Model
+
+```ts
+import { Immutable } from "immer";
+
+export type TennisPlayer = Immutable<{
+    firstName: string;
+    lastName: string;
+    nationality: string;
+    grandSlamWins: number;
+    favorite?: boolean;
+  }>;
+```
+
+---
+
+```yaml
+class: scrollable
+```
+
+# Solution B11 - Tennis Service
+
+```ts
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { TennisPlayer } from './tennis.model';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class TennisService {
+  private subject = new BehaviorSubject<TennisPlayer[]>([
+    {
+      firstName: "Roger",
+      lastName: "Federer",
+      nationality: "Swiss",
+      grandSlamWins: 20,
+    },
+    {
+      firstName: "Rafael",
+      lastName: "Nadal",
+      nationality: "Spanish",
+      grandSlamWins: 22,
+    },
+    {
+      firstName: "Novak",
+      lastName: "Djokovic",
+      nationality: "Serbian",
+      grandSlamWins: 24,
+    },
+  ]);
+
+  get players() {
+    return this.subject.asObservable();
+  }
+
+  setFavorite(player: TennisPlayer) {
+    const currentPlayers = this.subject.value;
+    const updatedPlayers = currentPlayers.map(p => ({
+      ...p,
+      favorite: p.firstName === player.firstName && p.lastName === player.lastName
+    }));
+    this.subject.next(updatedPlayers);
+  }
+}
+
+```
+
+---
+
+```yaml
+class: scrollable
+```
+
+# Solution B11 - Tennis List Component
+
+```ts
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { TennisService } from './tennis.service';
+
+@Component({
+  selector: 'app-tennis-legends',
+  standalone: true,
+  imports: [CommonModule],
+  providers: [TennisService],
+  templateUrl: './tennis-legends.component.html',
+  styleUrl: './tennis-legends.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class TennisLegendsComponent { 
+  tennisService = inject(TennisService)
+}
+```
+
+```html
+<h1>Tennis Legends</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Winds</th>
+      <th>Favorite</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (p of tennisService.players | async; track p.lastName) {
+    <tr>
+      <td>{{ p.firstName }} {{ p.lastName }}</td>
+      <td>{{ p.grandSlamWins }}</td>
+      <td>{{ p.favorite ? 'Favorite' : '' }}</td>
+      <td><button (click)="tennisService.setFavorite(p)">Set Favorite</button></td>
+    </tr>
+    }
+  </tbody>
+</table>
+```
