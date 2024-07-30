@@ -235,6 +235,16 @@ effect((onCleanup) => {
 
 ```yaml
 layout: image-right
+image: question.svg
+hideInToc: true
+```
+
+# Any Questions
+
+---
+
+```yaml
+layout: image-right
 image: sum-up.svg
 class: sum-up
 hideInToc: true
@@ -268,3 +278,81 @@ hideInToc: true
 - Use `effects` for side effects like logging
 
 </v-click>
+
+---
+
+```yaml
+layout: image
+image: task.svg
+class: task-full
+hideInToc: true
+```
+
+# Task B12.A
+
+1. Change the `tennis.service.ts` from RxJS to signals
+2. Change the `tennis-legends.component.ts` to use signals
+
+---
+
+```yaml
+class: scrollable
+hideInToc: true
+```
+
+# Solution B12.A
+
+## TennisService
+
+Change the `tennis.service.ts` from RxJS to signals
+
+```ts{1,8,12,15,20}
+import { computed, Injectable, signal } from '@angular/core';
+import { TennisPlayer } from './tennis.model';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class TennisService {
+  private store = signal<TennisPlayer[]>([
+    ...
+  ]);
+
+  players = computed(() => this.store())
+
+  setFavorite(player: TennisPlayer) {
+    const currentPlayers = this.store();
+    const updatedPlayers = currentPlayers.map(p => ({
+      ...p,
+      favorite: p.firstName === player.firstName && p.lastName === player.lastName
+    }));
+    this.store.set(updatedPlayers);
+  }
+}
+
+```
+
+## TennisLegendsComponent
+
+Change the `tennis-legends.component.ts` to use signals
+
+```html{8}
+<h1>Tennis Legends</h1>
+
+<table>
+  <thead>
+    ...
+  </thead>
+  <tbody>
+    @for (p of tennisService.players(); track p.lastName) {
+    <tr>
+      <td>{{ p.firstName }} {{ p.lastName }}</td>
+      <td>{{ p.grandSlamWins }}</td>
+      <td>{{ p.favorite ? 'Favorite' : '' }}</td>
+      <td><button (click)="tennisService.setFavorite(p)">Set Favorite</button></td>
+    </tr>
+    }
+  </tbody>
+</table>
+
+```

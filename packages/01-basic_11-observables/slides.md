@@ -129,12 +129,9 @@ import { of } from 'rxjs';
 const numbers = of(1, 2, 3);
 
 const subscription = numbers.subscribe(
-  // handles each value emitted by the Observable
-  (value) => console.log(value),
-  // handles errors during the Observable stream
-  (error) => console.error(error),
-  // called when the Observable completes
-  () => console.log('Completed')
+  (value) => console.log(value),    // handles each value emitted by the Observable
+  (error) => console.error(error),  // handles errors during the Observable stream
+  () => console.log('Completed')    // called when the Observable completes
 );
 
 // Unsubscribing removes the listener from receiving further values,
@@ -215,12 +212,67 @@ export class AsyncObservablePipeComponent {
 
 ```yaml
 layout: image
+image: sum-up.svg
+class: task-full
+hideInToc: true
+```
+
+# Summary
+
+<v-click>
+
+- `Observable` emits multiple values
+- `Observable` handles asynchronous data sources like user input, network requests, and timers
+- `Observable` can be transformed, combined and composed to create more complex data streams
+- `Observable` are lazy, so they won’t emit any values until you subscribe to them
+
+</v-click>
+
+<v-click>
+
+- `Subscription` represents a execution of an `Observable`
+- `Subscription` can be cancelled
+
+</v-click>
+
+<v-click>
+
+- `Operators` are pure functions to deal with collections
+
+</v-click>
+
+<v-click>
+
+- `Subject` multicasts a value or event to multiple Observers
+
+</v-click>
+
+<v-click>
+
+- `AsyncPipe` subscribes to an observable or promise and returns the latest value it has emitted
+
+</v-click>
+
+---
+
+```yaml
+layout: image-right
+image: question.svg
+hideInToc: true
+```
+
+# Any Questions
+
+---
+
+```yaml
+layout: image
 image: task.svg
 class: task-full
 hideInToc: true
 ```
 
-# Task B11.A
+# Task B11.A - TennisModel
 
 Create a `tennis-player.model.ts` file the the following type.
 
@@ -242,10 +294,10 @@ class: task-full
 hideInToc: true
 ```
 
-# Task B11.B
+# Task B11.B - TennisService
 
-1. Create a tennis service file with the generator.
-2. Define a BehaviorSubject with the type TennisPlayer[].
+1. Create a `tennis.service.ts` file with the generator.
+2. Define a `BehaviorSubject` with the type `TennisPlayer[]`.
 3. Define a getter `players` which returns `asObservable`.
 4. Define a method `setFavorite` to set the new favorite player.
 
@@ -258,7 +310,7 @@ class: task-full
 hideInToc: true
 ```
 
-# Task B11.C
+# Task B11.C - Mock Data
 
 Set these players in the players list.
 
@@ -280,7 +332,7 @@ Set these players in the players list.
   lastName: "Djokovic",
   nationality: "Serbian",
   grandSlamWins: 24,
-},
+}
 ```
 
 ---
@@ -292,12 +344,12 @@ class: task-full
 hideInToc: true
 ```
 
-# Task B11.D
+# Task B11.D - TennisLegendsComponent
 
-1. Create a new component for the tennis legends
-2. List the legends in a table
+1. Create a new component `tennis-legends.component.ts`
+2. List the legends in a `table`
 3. Mark the favorite player
-4. Add a button to each player to set as a favorite
+4. Add a `button` to each player to set as a favorite
 
 ---
 
@@ -305,80 +357,23 @@ hideInToc: true
 class: scrollable
 ```
 
-# Task B11.B - Tennis Service
+# Solution
+
+## Tennis Model
 
 ```ts
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { TennisPlayer } from './tennis.model';
-
-@Injectable({
-  providedIn: 'root'
-})
-export class TennisService {
-  private subject = new BehaviorSubject<TennisPlayer[]>([
-    {
-      firstName: "Roger",
-      lastName: "Federer",
-      nationality: "Swiss",
-      grandSlamWins: 20,
-    },
-    {
-      firstName: "Rafael",
-      lastName: "Nadal",
-      nationality: "Spanish",
-      grandSlamWins: 22,
-    },
-    {
-      firstName: "Novak",
-      lastName: "Djokovic",
-      nationality: "Serbian",
-      grandSlamWins: 24,
-    },
-  ]);
-
-  get players() {
-    return this.subject.asObservable();
-  }
-
-  setFavorite(player: TennisPlayer) {
-    const currentPlayers = this.subject.value;
-    const updatedPlayers = currentPlayers.map(p => ({
-      ...p,
-      favorite: p.firstName === player.firstName && p.lastName === player.lastName
-    }));
-    this.subject.next(updatedPlayers);
-  }
-}
-```
-
----
-
-```yaml
-class: scrollable
-```
-
-# Solution B11 - Tennis Model
-
-```ts
-import { Immutable } from "immer";
+import { Immutable } from 'immer';
 
 export type TennisPlayer = Immutable<{
-    firstName: string;
-    lastName: string;
-    nationality: string;
-    grandSlamWins: number;
-    favorite?: boolean;
-  }>;
+  firstName: string;
+  lastName: string;
+  nationality: string;
+  grandSlamWins: number;
+  favorite?: boolean;
+}>;
 ```
 
----
-
-```yaml
-class: scrollable
-```
-
-# Solution B11 - Tennis Service
+## Tennis Service
 
 ```ts
 import { Injectable } from '@angular/core';
@@ -386,26 +381,26 @@ import { BehaviorSubject } from 'rxjs';
 import { TennisPlayer } from './tennis.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TennisService {
   private subject = new BehaviorSubject<TennisPlayer[]>([
     {
-      firstName: "Roger",
-      lastName: "Federer",
-      nationality: "Swiss",
+      firstName: 'Roger',
+      lastName: 'Federer',
+      nationality: 'Swiss',
       grandSlamWins: 20,
     },
     {
-      firstName: "Rafael",
-      lastName: "Nadal",
-      nationality: "Spanish",
+      firstName: 'Rafael',
+      lastName: 'Nadal',
+      nationality: 'Spanish',
       grandSlamWins: 22,
     },
     {
-      firstName: "Novak",
-      lastName: "Djokovic",
-      nationality: "Serbian",
+      firstName: 'Novak',
+      lastName: 'Djokovic',
+      nationality: 'Serbian',
       grandSlamWins: 24,
     },
   ]);
@@ -416,23 +411,17 @@ export class TennisService {
 
   setFavorite(player: TennisPlayer) {
     const currentPlayers = this.subject.value;
-    const updatedPlayers = currentPlayers.map(p => ({
+    const updatedPlayers = currentPlayers.map((p) => ({
       ...p,
-      favorite: p.firstName === player.firstName && p.lastName === player.lastName
+      favorite:
+        p.firstName === player.firstName && p.lastName === player.lastName,
     }));
     this.subject.next(updatedPlayers);
   }
 }
-
 ```
 
----
-
-```yaml
-class: scrollable
-```
-
-# Solution B11 - Tennis List Component
+## TennisLegendsComponent
 
 ```ts
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
@@ -448,8 +437,8 @@ import { TennisService } from './tennis.service';
   styleUrl: './tennis-legends.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TennisLegendsComponent { 
-  tennisService = inject(TennisService)
+export class TennisLegendsComponent {
+  tennisService = inject(TennisService);
 }
 ```
 
@@ -471,7 +460,9 @@ export class TennisLegendsComponent {
       <td>{{ p.firstName }} {{ p.lastName }}</td>
       <td>{{ p.grandSlamWins }}</td>
       <td>{{ p.favorite ? 'Favorite' : '' }}</td>
-      <td><button (click)="tennisService.setFavorite(p)">Set Favorite</button></td>
+      <td>
+        <button (click)="tennisService.setFavorite(p)">Set Favorite</button>
+      </td>
     </tr>
     }
   </tbody>
