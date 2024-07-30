@@ -290,7 +290,7 @@ hideInToc: true
 
 # Task B12.A
 
-1. Change the `tennis.service.ts` from RxJS to signals
+1. Change the `tennis-legends.service.ts` from RxJS to signals
 2. Change the `tennis-legends.component.ts` to use signals
 
 ---
@@ -302,9 +302,9 @@ hideInToc: true
 
 # Solution B12.A
 
-## TennisService
+## TennisLegendsService
 
-Change the `tennis.service.ts` from RxJS to signals
+Change the `tennis-legends.service.ts` from RxJS to signals
 
 ```ts{1,8,12,15,20}
 import { computed, Injectable, signal } from '@angular/core';
@@ -313,7 +313,7 @@ import { TennisPlayer } from './tennis.model';
 @Injectable({
   providedIn: 'root'
 })
-export class TennisService {
+export class TennisLegendsService {
   private store = signal<TennisPlayer[]>([
     ...
   ]);
@@ -344,12 +344,12 @@ Change the `tennis-legends.component.ts` to use signals
     ...
   </thead>
   <tbody>
-    @for (p of tennisService.players(); track p.lastName) {
+    @for (p of tennisLegendsService.players(); track p.lastName) {
     <tr>
       <td>{{ p.firstName }} {{ p.lastName }}</td>
       <td>{{ p.grandSlamWins }}</td>
       <td>{{ p.favorite ? 'Favorite' : '' }}</td>
-      <td><button (click)="tennisService.setFavorite(p)">Set Favorite</button></td>
+      <td><button (click)="tennisLegendsService.setFavorite(p)">Set Favorite</button></td>
     </tr>
     }
   </tbody>

@@ -29,7 +29,7 @@
 - [x] 11 - observables @hirsch88
 - [x] 11 - task, example solution @hirsch88
 - [x] 12 - signals  @hirsch88
-- [ ] 12 - task - reuse 11 task with signals & example solution @hirsch88
+- [x] 12 - task - reuse 11 task with signals & example solution @hirsch88
 - [x] 13 - Ajax Requests @yannickholzenkamp
 - [x] 14 - Debugging (debug, angular dev tools) @yannickholzenkamp
 - [x] Inform participants about requirements (node, npm, proxy, ...) @yannickholzenkamp

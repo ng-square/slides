@@ -294,9 +294,9 @@ class: task-full
 hideInToc: true
 ```
 
-# Task B11.B - TennisService
+# Task B11.B - TennisLegendsService
 
-1. Create a `tennis.service.ts` file with the generator.
+1. Create a `tennis-legends.service.ts` file with the generator.
 2. Define a `BehaviorSubject` with the type `TennisPlayer[]`.
 3. Define a getter `players` which returns `asObservable`.
 4. Define a method `setFavorite` to set the new favorite player.
@@ -359,7 +359,7 @@ class: scrollable
 
 # Solution
 
-## Tennis Model
+## TennisPlayer (Model)
 
 ```ts
 import { Immutable } from 'immer';
@@ -373,7 +373,7 @@ export type TennisPlayer = Immutable<{
 }>;
 ```
 
-## Tennis Service
+## TennisLegendsService
 
 ```ts
 import { Injectable } from '@angular/core';
@@ -383,7 +383,7 @@ import { TennisPlayer } from './tennis.model';
 @Injectable({
   providedIn: 'root',
 })
-export class TennisService {
+export class TennisLegendsService {
   private subject = new BehaviorSubject<TennisPlayer[]>([
     {
       firstName: 'Roger',
@@ -426,19 +426,19 @@ export class TennisService {
 ```ts
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TennisService } from './tennis.service';
+import { TennisLegendsService } from './tennis-legends.service';
 
 @Component({
   selector: 'app-tennis-legends',
   standalone: true,
   imports: [CommonModule],
-  providers: [TennisService],
+  providers: [TennisLegendsService],
   templateUrl: './tennis-legends.component.html',
   styleUrl: './tennis-legends.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TennisLegendsComponent {
-  tennisService = inject(TennisService);
+  tennisLegendsService = inject(TennisLegendsService);
 }
 ```
 
@@ -455,13 +455,13 @@ export class TennisLegendsComponent {
     </tr>
   </thead>
   <tbody>
-    @for (p of tennisService.players | async; track p.lastName) {
+    @for (p of tennisLegendsService.players | async; track p.lastName) {
     <tr>
       <td>{{ p.firstName }} {{ p.lastName }}</td>
       <td>{{ p.grandSlamWins }}</td>
       <td>{{ p.favorite ? 'Favorite' : '' }}</td>
       <td>
-        <button (click)="tennisService.setFavorite(p)">Set Favorite</button>
+        <button (click)="tennisLegendsService.setFavorite(p)">Set Favorite</button>
       </td>
     </tr>
     }

@@ -99,7 +99,7 @@ getPlayers(): Signal<Player[] | undefined> {
 ```ts
 
 postPlayer(player: Player): Signal<Player | undefined> {
-  return toSignal(this.httpClient.get<Player>('/api/players'));
+  return toSignal(this.httpClient.post<Player>('/api/players', player));
 } 
 
 ```
@@ -127,6 +127,27 @@ this.httpClient.get<Player[]>('/api/players').subscribe(
 - Observables can be converted to signals
 
 ---
+
+# Handling responses with Promises
+
+Simplify the one-time API call action into a `Promise` for a better readability
+
+```ts
+try {
+  await firstValueFrom(this.http.get<Player[]>(`/api/players`))
+} catch(error) {
+  // Implement error handling
+}
+```
+
+- **Single value**: It resolves with the first emitted value from the Observable and then completes
+- **Simplicity**: Ideal for one-time API calls, simplifying code by avoiding Observable subscriptions
+- **Cleaner Syntax**: async/await with Promises results in more readable code
+- **Error Handling**: try/catch blocks provide straightforward error management
+- **Reduced Overhead**: Eliminates the need to maintain Observable subscriptions for single values
+- **Easier Integration**: Seamlessly works with APIs or libs expecting Promises, reducing conversion efforts
+
+---
 layout: image
 image: task.svg
 class: task-full
@@ -136,26 +157,53 @@ hideInToc: true
 # Task B13.A - HTTP requests
 
 - Check what data is returned from the API
-- Create a new Angular service named `TennisPlayerService`
+- Update the service named `TennisLegendsService`
 - In the service, inject a `HttpClient`
 - Create a method to fetch tennis players from the API
-- Display the data in the app where it makes sense
 
-`https://ch-tennis.vercel.app/api/players`
+`https://ng-square-api.vercel.app/api/tennis/legends`
 
 --- 
 hideInToc: true
+class: scrollable
 ---
 
-# Task B13.A - Example solution
+# Solution B13.A
 
-```typescript
+## TennisLegendsService
+
+```typescript{3,4,10,15-22}
+import { computed, inject, Injectable, signal } from '@angular/core';
+import { TennisPlayer } from './tennis.model';
+import { HttpClient } from '@angular/common/http';
+import { firstValueFrom } from 'rxjs';
+
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-export class TennisPlayerService {
-  getPlayers(): Signal<Player[] | undefined> {
-    return toSignal(this.httpClient.get<Player[]>('https://ch-tennis.vercel.app/api/players'));
-  } 
+export class TennisService {
+  private http = inject(HttpClient)
+  private store = signal<TennisPlayer[]>([]);
+
+  players = computed(() => this.store())
+
+  constructor(){
+    this.fetch()
+  }
+
+  async fetch() {
+    const players = await firstValueFrom(this.http.get<TennisPlayer[]>(`https://ng-square-api.vercel.app/api/tennis/legends`))
+    this.store.set(players)
+  }
+
+  setFavorite(player: TennisPlayer) {
+    const currentPlayers = this.store();
+    const updatedPlayers = currentPlayers.map(p => ({
+      ...p,
+      favorite: p.firstName === player.firstName && p.lastName === player.lastName
+    }));
+    this.store.set(updatedPlayers);
+  }
 }
+
 ```
