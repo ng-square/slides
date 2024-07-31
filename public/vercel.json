@@ -37,6 +37,10 @@
       "destination": "/01-basic_07-injection-services/index.html"
     },
     {
+      "source": "/01-basic_08-standalone-module/(.*)",
+      "destination": "/01-basic_08-standalone-module/index.html"
+    },
+    {
       "source": "/01-basic_10-change-detection/(.*)",
       "destination": "/01-basic_10-change-detection/index.html"
     },
@@ -47,6 +51,14 @@
     {
       "source": "/01-basic_12-signals/(.*)",
       "destination": "/01-basic_12-signals/index.html"
+    },
+    {
+      "source": "/01-basic_13-http-requests/(.*)",
+      "destination": "/01-basic_13-http-requests/index.html"
+    },
+    {
+      "source": "/01-basic_14-debugging/(.*)",
+      "destination": "/01-basic_14-debugging/index.html"
     },
     {
       "source": "/02-intermediate_01-routing/(.*)",
