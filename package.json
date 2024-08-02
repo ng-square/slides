@@ -6,9 +6,9 @@
   "devDependencies": {
     "@nx/eslint": "17.2.8",
     "@nx/eslint-plugin": "17.2.8",
-    "@nx/jest": "17.2.8",
-    "@nx/js": "17.2.8",
-    "@nx/plugin": "^17.2.8",
+    "@nx/jest": "18.0.8",
+    "@nx/js": "18.0.8",
+    "@nx/plugin": "^18.0.8",
     "@slidev/cli": "latest",
     "@slidev/theme-default": "latest",
     "@slidev/theme-seriph": "latest",
@@ -30,10 +30,11 @@
     "typescript": "~5.2.2"
   },
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "devkit"
   ],
   "dependencies": {
-    "@nx/devkit": "17.2.8",
+    "@nx/devkit": "18.0.8",
     "@swc/helpers": "~0.5.2",
     "tslib": "^2.3.0"
   }

@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../dist/out-tsc",
+    "declaration": true,
+    "types": ["node"]
+  },
+  "include": ["src/**/*.ts", "src/generators/files/src/app/app.routes.ts.template", "src/generators/files/src/app/app.component.ts.template", "src/generators/files/src/test-setup.ts.template", "src/generators/files/src/zone-flags.ts.template", "src/generators/files/src/main.ts.template"],
+  "exclude": ["jest.config.ts", "src/**/*.spec.ts", "src/**/*.test.ts"]
+}
